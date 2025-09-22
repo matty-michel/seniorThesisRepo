@@ -75,4 +75,5 @@ HEALTH & POWERUPS - On-screen UI will tell the player how many hearts they have 
 CHARACTER SFX - The characters will have sound effects for walking, taking damage, and attacking.
 
 ENEMY SFX - The enemies will have sound effects for taking damage, attacking, and flying.
+
 ENVIRONMENT SFX - There will be background music in the start menu and during gameplay.
