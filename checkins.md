@@ -1,20 +1,21 @@
-## Week 1 Summary (MM/DD/YYYY)
+## Week 1 Summary (09/21/2025)
 
 ### This week I worked on:
 
-[Your answer here]
+I set my Unity project up with GitHub and worked on my Design Document for my game.
 
 ### This week I learned:
 
-[Your answer here]
+When setting up a repository with a gitignore file, the file has to be in the root folder of the Unity project.
+Each time the project is opened or closed, there are hundreds of files that are updated.
 
 ### My successes this week were:
 
-[Your answer here]
+I further developed all of the features and mechanics I want in my game.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I struggled to set up version control the first time around because I had my gitignore file in the wrong place.
 
 ---
 
