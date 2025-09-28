@@ -36,6 +36,14 @@ If you have any questions feel free to ask me! I'll answer professor questions, 
 ### Overview:
 This game will be a single-player 2D platformer where the player controls three characters, each a different insect with its own unique abilities. The player will traverse three separate areas with different obstacles to clear and enemies to face. Each section will end with a final “boss battle” that the player must defeat in order to clear the level.
 
+### Important Terms:
+PLATFORMER - A "platformer" game focuses on the character overcoming obstacles, collecting items, and defeating enemies using player abilities.
+
+PARENT/CHILD - The Unity editor uses a hierarchy system. When an object is a "child" under another object, it inherits the "parent" object's transform.
+
+TRANSFORM - The "transform" is the position/rotation/scale of an object.
+
+
 
 ### Gameplay:
 HEALTH - The player has a 3 heart health system–enemy attacks will do different levels of damage.
