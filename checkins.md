@@ -19,22 +19,22 @@ I struggled to set up version control the first time around because I had my git
 
 ---
 
-## Week 2 Summary (MM/DD/YYYY)
+## Week 2 Summary (09/29/2025)
 ### This week I worked on:
 
-[Your answer here]
+I started with a 3D template in Unity, so I downloaded Unity's 2D packages and configured the scene and camera to be 2D. I set up a basic scene with a ground platform and a character. The player can control the character using the WASD keys + the spacebar to jump. The camera is currently childed under the character so it follows the character's movement.
 
 ### This week I learned:
 
-[Your answer here]
+I was originally going to use a 2.5D approach to build this game, which would mean using 2D and 3D elements. However, I wanted to use mostly 2D sprites for the game art. Using 2D sprites on 3D objects requires "billboarding" them, which is basically making the sprite always face the camera. This was a bit more complicated than I initially thought, so I decided to go entirely 2D instead.
 
 ### My successes this week were:
 
-[Your answer here]
+I successfully created the most basic functions of my character controller and learned more about configuring Unity to work in both 2D and 3D applications.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+Switching my game plan from 2D and 3D elements to entirely 2D.
 
 ---
 
