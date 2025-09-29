@@ -17,16 +17,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //only allows player to jump when they are on the ground
         if (Input.GetKeyDown(KeyCode.Space) && _isOnGround)
         {
             //applies upward force immediately
-            _playerRigidBody.AddForce(Vector3.up * jumpForce, ForceMode2D.Impulse);
+            _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //player is off the ground
             _isOnGround = false;
         }
         
         //character moves back and forth
         _horizontalInput = Input.GetAxis("Horizontal");
+        //must use Vector3 for transform.Translate
         transform.Translate(Vector3.right * _horizontalInput * Time.deltaTime * speed);
     }
 
