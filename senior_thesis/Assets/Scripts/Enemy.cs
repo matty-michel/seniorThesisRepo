@@ -21,14 +21,19 @@ public class Enemy : MonoBehaviour
         
     }
 
+    void MoveTowardsPlayer()
+    {
+        //getting the force direction by subtracting enemy pos from player pos
+        //normalized keeps the force the same regardless of distance
+        Vector2 moveDirection = (_player.transform.position - transform.position).normalized;
+        _enemyRigidbody.AddForce(moveDirection * speed);
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            //getting the force direction by subtracting enemy pos from player pos
-            //normalized keeps the force the same regardless of distance
-            Vector2 moveDirection = (_player.transform.position - transform.position).normalized;
-            _enemyRigidbody.AddForce(moveDirection * speed);
+			MoveTowardsPlayer();
         }
     }
 }
