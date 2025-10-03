@@ -315,8 +315,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c416028fbbc4edfb50fb35781e7067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 5
+  speed: 7
+  jumpForce: 7
 --- !u!212 &348691186
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -816,7 +816,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0.21133333}
-  m_Radius: 5
+  m_Radius: 10
 --- !u!1 &1244339019
 GameObject:
   m_ObjectHideFlags: 0
