@@ -6,17 +6,15 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int damage;
     //enemy can attack immediately
     private float _cooldownTimer = Mathf.Infinity;
-    private Health _playerHealth;
     private Rigidbody2D _enemyRigidbody;
+    private Health _playerHealth;
     private GameObject _player;
     private bool _playerInRange;
-    public float speed;
+    public float speed = 1f;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //getting rigidbody
-        _enemyRigidbody =  GetComponent<Rigidbody2D>();
         //getting player
         _player = GameObject.Find("Player");
         //getting health component of player
@@ -40,14 +38,6 @@ public class Enemy : MonoBehaviour
             //MoveTowardsPlayer();
         }
     }
-
-    /*void MoveTowardsPlayer()
-    {
-        //getting the force direction by subtracting enemy pos from player pos
-        //normalized keeps the force the same regardless of distance
-        Vector2 moveDirection = (_player.transform.position - transform.position).normalized;
-        _enemyRigidbody.AddForce(moveDirection * speed);
-    }*/
 
     void DamagePlayer()
     {
@@ -73,4 +63,12 @@ public class Enemy : MonoBehaviour
             _playerInRange = false;
         }
     }
+    
+    /*void MoveTowardsPlayer()
+    {
+        //getting the force direction by subtracting enemy pos from player pos
+        //normalized keeps the force the same regardless of distance
+        Vector2 moveDirection = (_player.transform.position - transform.position).normalized;
+        _enemyRigidbody.AddForce(moveDirection * speed);
+    }*/
 }
