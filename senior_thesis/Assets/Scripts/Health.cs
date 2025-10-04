@@ -2,19 +2,35 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    private float _maxHealth = 3f;
-    private float _currentHealth;
+    [SerializeField] private int maxHealth = 3;
+    public int currentHealth;
 
     void Start()
     {
-       _currentHealth = _maxHealth; 
+       currentHealth = maxHealth; 
     }
 
-    public void DealDamage(float damage)
+    public void TakeDamage(int damage)
     {
-        if (_maxHealth == 0) return;
         //subtracting damage from health
-        //prevents health from going below 0
-        _currentHealth = Mathf.Max(_currentHealth - damage, 0);
+        //limits health to a min of 0 and a max of _maxHealth
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        
+        if (currentHealth > 0)
+        {
+            //player alive
+        }
+        else
+        {
+            //player dead
+        }
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            TakeDamage(1);
+        }
     }
 }
