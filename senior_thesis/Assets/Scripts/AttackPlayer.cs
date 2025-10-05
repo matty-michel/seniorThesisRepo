@@ -6,7 +6,6 @@ public class AttackPlayer : MonoBehaviour
     [SerializeField] private int damage;
     //enemy can attack immediately
     private float _cooldownTimer = Mathf.Infinity;
-    private Rigidbody2D _enemyRigidbody;
     private Health _playerHealth;
     private GameObject _player;
     private bool _playerInRange;
@@ -33,7 +32,6 @@ public class AttackPlayer : MonoBehaviour
                 _cooldownTimer = 0;
                 DamagePlayer();
             }
-            //MoveTowardsPlayer();
         }
     }
     
@@ -47,7 +45,7 @@ public class AttackPlayer : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        //player is in aggro range of enemy
+        //player is in attack range of enemy
         if (collision.CompareTag("Player"))
         {
             _playerInRange = true;

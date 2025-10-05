@@ -31,6 +31,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _playerInRange = true;
+            Debug.Log("Player In Range");
         }
     }
 
@@ -39,6 +40,7 @@ public class Enemy : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             _playerInRange = false;
+            Debug.Log("Player Out Of Range");
         }
     }
     

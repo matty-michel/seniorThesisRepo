@@ -579,10 +579,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 509761036}
-  - component: {fileID: 509761037}
   - component: {fileID: 509761038}
   - component: {fileID: 509761039}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: AttackRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,42 +603,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 879078556}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &509761037
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509761035}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2
 --- !u!114 &509761038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -809,7 +772,6 @@ Transform:
   m_Children:
   - {fileID: 609356075}
   - {fileID: 785579575}
-  - {fileID: 879078556}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
@@ -877,7 +839,7 @@ GameObject:
   - component: {fileID: 879078552}
   - component: {fileID: 879078558}
   m_Layer: 6
-  m_Name: Enemy_Ground
+  m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1038,7 +1000,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 509761036}
-  m_Father: {fileID: 832391182}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &879078557
 CircleCollider2D:
@@ -1232,4 +1194,5 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1244339022}
   - {fileID: 348691187}
+  - {fileID: 879078556}
   - {fileID: 832391182}
