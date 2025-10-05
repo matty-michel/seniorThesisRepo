@@ -43,9 +43,11 @@ public class PlayerController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         //if enemy is within attack range & player presses E
-        if (collision.gameObject.CompareTag("Enemy") && Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && collision.CompareTag("Enemy"))
         {
+            Debug.Log(collision.gameObject.name);
             //referencing the health script of the enemy
             collision.GetComponent<Health>().TakeDamage(1);
         }

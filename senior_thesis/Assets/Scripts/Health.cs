@@ -4,6 +4,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] private int maxHealth = 3;
     public int currentHealth;
+    private bool _dead;
 
     void Start()
     {
@@ -22,32 +23,29 @@ public class Health : MonoBehaviour
         }
         else
         {
-            //player dead
-            //disabling player controller script so player can no longer move
-            if (gameObject.GetComponent<PlayerController>() != null)
+            if (!_dead)
             {
-                gameObject.GetComponent<PlayerController>().enabled  = false;  
-            }
+                //player dead
+                //disabling player controller script so player can no longer move
+                if (gameObject.GetComponent<PlayerController>() != null)
+                {
+                    gameObject.GetComponent<PlayerController>().enabled  = false;  
+                }
             
-            //enemy dead
-            //disabling enemy scripts so enemy can no longer move
-            if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
-            {
-                gameObject.GetComponentInParent<EnemyPatrol>().enabled = false;
-            }
+                //enemy dead
+                //disabling enemy scripts so enemy can no longer move
+                if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
+                {
+                    gameObject.GetComponentInParent<EnemyPatrol>().enabled = false;
+                }
 
-            if (gameObject.GetComponent<Enemy>() != null)
-            {
-                gameObject.GetComponent<Enemy>().enabled = false;
-            }
-        }
-    }
+                if (gameObject.GetComponent<Enemy>() != null)
+                {
+                    gameObject.GetComponent<Enemy>().enabled = false;
+                }
 
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            TakeDamage(1);
+                _dead = true;
+            }
         }
     }
 }

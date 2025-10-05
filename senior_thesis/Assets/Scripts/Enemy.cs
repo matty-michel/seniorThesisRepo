@@ -30,6 +30,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_playerHealth.currentHealth <= 0)
+        {
+            _playerInRange = false;
+        }
+        
         //updating cooldown
         _cooldownTimer += Time.deltaTime;
         
