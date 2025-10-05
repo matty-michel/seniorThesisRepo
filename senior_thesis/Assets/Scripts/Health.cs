@@ -18,11 +18,28 @@ public class Health : MonoBehaviour
         
         if (currentHealth > 0)
         {
-            //player alive
+            //alive
         }
         else
         {
             //player dead
+            //disabling player controller script so player can no longer move
+            if (gameObject.GetComponent<PlayerController>() != null)
+            {
+                gameObject.GetComponent<PlayerController>().enabled  = false;  
+            }
+            
+            //enemy dead
+            //disabling enemy scripts so enemy can no longer move
+            if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
+            {
+                gameObject.GetComponentInParent<EnemyPatrol>().enabled = false;
+            }
+
+            if (gameObject.GetComponent<Enemy>() != null)
+            {
+                gameObject.GetComponent<Enemy>().enabled = false;
+            }
         }
     }
 
