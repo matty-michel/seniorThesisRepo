@@ -38,22 +38,22 @@ Switching my game plan from 2D and 3D elements to entirely 2D.
 
 ---
 
-## Week 3 Summary (MM/DD/YYYY)
+## Week 3 Summary (10/06/2025)
 ### This week I worked on:
 
-[Your answer here]
+I planned out my first sprint and began implementing it; my main focus for this sprint is player and enemy interaction. This week, I worked on creating an enemy that can patrol between two points, chase the player, and damage the player. I also created a health script so the player and enemies can die.
 
 ### This week I learned:
 
-[Your answer here]
+Working with multiple trigger colliders can be challenging; they sometimes need to be on child objects for functions like OnTriggerEnter2D to work properly. I also learned that changing the scale of a 2D object will flip the way it is facing. 
 
 ### My successes this week were:
 
-[Your answer here]
+I have an enemy that can patrol between two points and attack the player.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I still have a few bugs I'm working to fix. At the moment, the player still cannot damage the enemy, and the enemy cannot chase the player and then return to its patrol route.
 
 ---
 

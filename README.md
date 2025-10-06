@@ -43,6 +43,8 @@ PARENT/CHILD - The Unity editor uses a hierarchy system. When an object is a "ch
 
 TRANSFORM - The "transform" is the position/rotation/scale of an object.
 
+COLLIDER - A "collider" is a component that can be added to an object. It can be used to detect collisions with colliders on other objects. Colliders can also be set to "trigger" to trigger certain events.
+
 
 
 ### Gameplay:
