@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Transform attackTransform;
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private int damage = 1;
+    [SerializeField] private float pushbackForce = 5f;
     
     private void Update()
     {
@@ -27,10 +28,17 @@ public class PlayerAttack : MonoBehaviour
         for (int i = 0; i < _hits.Length; i++)
         {
             //accessing each enemy's health
-            Health enemyHealth =  _hits[i].collider.GetComponent<Health>();
+            Health enemyHealth = _hits[i].collider.GetComponent<Health>();
             if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage(damage);
+            }
+            
+            Rigidbody2D enemyRigidbody = _hits[i].collider.GetComponent<Rigidbody2D>();
+            if (enemyRigidbody != null)
+            {
+                Vector3 awayFromPlayer = enemyRigidbody.transform.position - transform.position;
+                enemyRigidbody.AddForce(awayFromPlayer * pushbackForce, ForceMode2D.Impulse);
             }
         }
     }

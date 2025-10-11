@@ -469,6 +469,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   damage: 1
+  pushbackForce: 2
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
