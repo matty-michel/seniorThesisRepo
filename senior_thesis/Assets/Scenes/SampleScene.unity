@@ -464,10 +464,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 2
-  attackTransform: {fileID: 0}
+  attackTransform: {fileID: 889473951}
   attackableLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   damage: 1
 --- !u!1 &410087039
 GameObject:
@@ -999,7 +999,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889473951}
-  - component: {fileID: 889473953}
   m_Layer: 3
   m_Name: AttackRange
   m_TagString: Untagged
@@ -1022,24 +1021,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 348691187}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &889473953
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 889473950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcc515ef144e94b84943da9a943f5dae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1.5
-  attackTransform: {fileID: 889473951}
-  attackableLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  damage: 1
 --- !u!1 &1244339019
 GameObject:
   m_ObjectHideFlags: 0
