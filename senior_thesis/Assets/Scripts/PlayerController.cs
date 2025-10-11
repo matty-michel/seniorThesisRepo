@@ -5,7 +5,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _playerRigidBody;
     private float _horizontalInput;
     private bool _isOnGround = true;
-    private bool _enemyInRange;
     public float speed;
     public float jumpForce;
     
@@ -39,18 +38,6 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             _isOnGround = true;
-        }
-    }
-
-    void OnTriggerStay2D(Collider2D collision)
-    {
-        Debug.Log(collision.gameObject.name);
-        //if enemy is within attack range & player presses E
-        if (Input.GetKeyDown(KeyCode.E) && collision.CompareTag("Enemy"))
-        {
-            Debug.Log(collision.gameObject.name);
-            //referencing the health script of the enemy
-            collision.GetComponent<Health>().TakeDamage(1);
         }
     }
 }
