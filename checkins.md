@@ -57,22 +57,22 @@ I still have a few bugs I'm working to fix. At the moment, the player still cann
 
 ---
 
-## Week 4 Summary (MM/DD/YYYY)
+## Week 4 Summary (10/13/2025)
 ### This week I worked on:
 
-[Your answer here]
+I fixed the bug where the player cannot damage the enemy. The player can now attack by pressing the E key when within a certain range of the enemy, damaging the enemy's health and knocking it back.
 
 ### This week I learned:
 
-[Your answer here]
+Instead of using a collider set to trigger, I learned that you can use a RaycastHit2D, which casts a circle around the player that returns info about any colliders it hits. Each enemy collider within range is stored in an array, so the player can hit multiple enemies at once.
 
 ### My successes this week were:
 
-[Your answer here]
+I did some research and found a better way to achieve the functionality I wanted.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I had to rework the way I was thinking about the player's attack, and I had issues with time management and other responsibilities this week.
 
 ---
 
