@@ -16,7 +16,8 @@ public class Health : MonoBehaviour
         //subtracting damage from health
         //limits health to a min of 0 and a max of _maxHealth
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
-        
+        Debug.Log("current health: " + currentHealth);
+        Debug.Log("damage: " + damage);
         if (currentHealth > 0)
         {
             //alive
@@ -34,7 +35,8 @@ public class Health : MonoBehaviour
             
                 //enemy dead
                 //disabling enemy scripts so enemy can no longer move
-                if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
+                Destroy(gameObject);
+                /*if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
                 {
                     gameObject.GetComponentInParent<EnemyPatrol>().enabled = false;
                 }
@@ -42,7 +44,7 @@ public class Health : MonoBehaviour
                 if (gameObject.GetComponent<Enemy>() != null)
                 {
                     gameObject.GetComponent<Enemy>().enabled = false;
-                }
+                }*/
 
                 _dead = true;
             }
