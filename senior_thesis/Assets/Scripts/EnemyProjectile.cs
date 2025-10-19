@@ -22,7 +22,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag("Ground"))
         {
-            Destroy(projectilePrefab);
+            projectilePrefab.SetActive(false);
         }
     }
 }
