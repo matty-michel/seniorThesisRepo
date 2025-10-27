@@ -76,24 +76,22 @@ I had to rework the way I was thinking about the player's attack, and I had issu
 
 ---
 
-## Week 5 Summary (MM/DD/YYYY)
+## Week 5 Summary (10/20/2025)
 ### This week I worked on:
 
-[Your answer here]
+I added a second "flying" enemy type that follows a patrol and shoots projectiles straight down. The projectiles damage the player and are destroyed once they make contact or fall past the ground.
 
 ### This week I learned:
 
-[Your answer here]
+The player's attack did double damage because of the enemies' second collider used for their attack range; to fix this, I moved their attack range collider onto an empty child object and moved the enemy script to that object.
 
 ### My successes this week were:
 
-[Your answer here]
+I got a working projectile system that can damage the player.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
-
----
+I tried destroying the projectiles when they collided with the ground object, but that didn't seem to work. I've changed it to a check to see if they travel past a certain distance, but I'd like to use the ground's collider if possible.
 
 ## Week 6 Summary (MM/DD/YYYY)
 ### This week I worked on:
