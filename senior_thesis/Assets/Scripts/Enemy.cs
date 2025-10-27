@@ -30,6 +30,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //enemy does not try to attack player when the player is dead
         if (_playerHealth.currentHealth <= 0)
         {
             _playerInRange = false;

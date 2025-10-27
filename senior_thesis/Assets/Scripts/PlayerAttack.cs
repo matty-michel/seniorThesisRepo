@@ -9,12 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private int damage = 1;
     [SerializeField] private float pushbackForce = 5f;
-    private Health _enemyHealth;
-
-    private void Awake()
-    {
-        
-    }
+    //private Health _enemyHealth;
     
     private void Update()
     {

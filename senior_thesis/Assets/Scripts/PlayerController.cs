@@ -25,6 +25,12 @@ public class PlayerController : MonoBehaviour
             //player is off the ground
             _isOnGround = false;
         }
+        //player is blocking -- cannot move or attack
+        /*if(Input.GetKey(KeyCode.LeftShift) && _isOnGround)
+        {
+            //disable controller
+            //disable health script?
+        }*/
         
         //character moves back and forth
         _horizontalInput = Input.GetAxis("Horizontal");

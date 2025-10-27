@@ -467,9 +467,9 @@ MonoBehaviour:
   attackTransform: {fileID: 889473951}
   attackableLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 128
   damage: 1
-  pushbackForce: 3
+  pushbackForce: 5
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +909,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 514851543906412325, guid: 44e2750390e5e44279895d3bed682a1d, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 859651239647087826, guid: 44e2750390e5e44279895d3bed682a1d, type: 3}
       propertyPath: m_Layer
       value: 7
