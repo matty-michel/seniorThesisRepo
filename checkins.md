@@ -93,22 +93,22 @@ I got a working projectile system that can damage the player.
 
 I tried destroying the projectiles when they collided with the ground object, but that didn't seem to work. I've changed it to a check to see if they travel past a certain distance, but I'd like to use the ground's collider if possible.
 
-## Week 6 Summary (MM/DD/YYYY)
+## Week 6 Summary (10/27/2025)
 ### This week I worked on:
 
-[Your answer here]
+I took a break this week, but I did go in and fix an error where the attackable layer in the player script was set to the Ground layer instead of the Enemy layer. I also planned out the end of my first sprint. I'd like to implement an enemy chase mechanic and possibly a mechanic to block enemy attacks.
 
 ### This week I learned:
 
-[Your answer here]
+I deleted and re-added the Ground layer last week, which changed the order of all my other layers. There were several instances where I had to go in and change the layer set on an object or in a script.
 
 ### My successes this week were:
 
-[Your answer here]
+I planned out the rest of my first sprint.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I didn't realize deleting a layer would reorder all of the others, so I had to do some clean up after that.
 
 ---
 
