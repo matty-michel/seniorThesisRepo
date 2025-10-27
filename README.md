@@ -14,6 +14,8 @@ COLLIDER - A "collider" is a component that can be added to an object. It can be
 
 RIGIDBODY - A "rigidbody" is a component that allows an object to be affected by Unity's physics system. The object will be moved by gravity and other forces from collisions.
 
+LAYERS & TAGS - Unity uses "layers" and "tags" as helpful organization tools to separate game objects. Tags are a useful way to reference an object in a script.
+
 
 
 ### Gameplay:
