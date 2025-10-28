@@ -10,9 +10,7 @@ public class Enemy : MonoBehaviour
     private GameObject _player;
     private bool _playerInRange;
     private EnemyPatrol _enemyPatrol;
-    
-    //private Rigidbody2D _enemyRigidbody;
-    //public float speed = 1f;
+    private EnemyChase _enemyChase;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -23,8 +21,6 @@ public class Enemy : MonoBehaviour
         _playerHealth = _player.GetComponent<Health>();
         //getting enemy patrol script of parent patrol object
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
-        //getting enemy rigidbody
-        //_enemyRigidbody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -49,6 +45,11 @@ public class Enemy : MonoBehaviour
             }
         }
 
+        //enemy only chases when not attacking the player
+        if (_enemyChase != null)
+        {
+            _enemyChase.enabled = !_playerInRange;
+        }
         //enemy only patrols when not attacking the player
         if (_enemyPatrol != null)
         {
@@ -82,12 +83,4 @@ public class Enemy : MonoBehaviour
             _playerInRange = false;
         }
     }
-    
-    /*void MoveTowardsPlayer()
-    {
-        //getting the force direction by subtracting enemy pos from player pos
-        //normalized keeps the force the same regardless of distance
-        Vector2 moveDirection = (_player.transform.position - transform.position).normalized;
-        _enemyRigidbody.AddForce(moveDirection * speed);
-    }*/
 }
