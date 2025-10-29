@@ -968,7 +968,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 348691183}
-  speed: 0.5
   chaseRange: {fileID: 1997505987}
 --- !u!1 &2128937998 stripped
 GameObject:
@@ -1057,6 +1056,10 @@ PrefabInstance:
     - target: {fileID: 2717306679137038686, guid: 44e2750390e5e44279895d3bed682a1d, type: 3}
       propertyPath: m_ExcludeLayers.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8545778825646196265, guid: 44e2750390e5e44279895d3bed682a1d, type: 3}
+      propertyPath: speed
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

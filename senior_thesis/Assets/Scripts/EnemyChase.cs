@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private float speed;
+    //[SerializeField] private float speed;
     [SerializeField] private Collider2D chaseRange;
     private EnemyPatrol _enemyPatrol;
     private Rigidbody2D _enemyRigidbody;
@@ -23,7 +23,10 @@ public class EnemyChase : MonoBehaviour
     {
         if (_playerInRange)
         {
-            MoveTowardsPlayer();
+            //Vector2 moveDirection = (player.transform.position - transform.position).normalized;
+            float moveDirection = player.transform.position.x - transform.position.x;
+            _enemyPatrol.MoveInDirection(moveDirection);
+            //MoveTowardsPlayer();
         }
     }
 
@@ -33,7 +36,7 @@ public class EnemyChase : MonoBehaviour
         {
             Debug.Log("Player in range");
             _playerInRange = true;
-            _enemyPatrol.enabled = false;
+            //_enemyPatrol.enabled = false;
         }
     }
 
@@ -43,17 +46,17 @@ public class EnemyChase : MonoBehaviour
         {
             Debug.Log("Player out of range");
             _playerInRange = false;
-            _enemyPatrol.enabled = true;
+            //_enemyPatrol.enabled = true;
         }
     }
         
-    void MoveTowardsPlayer()
+    /*void MoveTowardsPlayer()
     {
         //getting the force direction by subtracting enemy pos from player pos
         //normalized keeps the force the same regardless of distance
         Vector2 moveDirection = (player.transform.position - transform.position).normalized;
         _enemyRigidbody.AddForce(moveDirection * speed);
-    }
+    }*/
 
     void OnDrawGizmos()
     {

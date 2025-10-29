@@ -51,7 +51,7 @@ public class EnemyPatrol : MonoBehaviour
         _movingLeft =  !_movingLeft;
     }
     
-    private void MoveInDirection(int direction)
+    public void MoveInDirection(float direction)
     {
         //enemy faces this direction--x can be negative or positive
         //transform.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction, _initScale.y, _initScale.z);
