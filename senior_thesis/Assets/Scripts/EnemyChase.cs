@@ -6,14 +6,11 @@ public class EnemyChase : MonoBehaviour
     //[SerializeField] private float speed;
     [SerializeField] private Collider2D chaseRange;
     private EnemyPatrol _enemyPatrol;
-    private Rigidbody2D _enemyRigidbody;
     private bool _playerInRange;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        //getting enemy rigidbody
-        _enemyRigidbody = GetComponentInParent<Rigidbody2D>();
         //getting enemy patrol script
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
