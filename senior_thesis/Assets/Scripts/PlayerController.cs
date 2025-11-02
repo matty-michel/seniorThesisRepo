@@ -4,7 +4,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _playerRigidBody;
     private float _horizontalInput;
-    private bool _isOnGround = true;
+    public bool isOnGround = true;
     public float speed;
     public float jumpForce;
     
@@ -18,12 +18,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //only allows player to jump when they are on the ground
-        if (Input.GetKeyDown(KeyCode.Space) && _isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
         {
             //applies upward force immediately
             _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             //player is off the ground
-            _isOnGround = false;
+            isOnGround = false;
         }
         //player is blocking -- cannot move or attack
         /*if(Input.GetKey(KeyCode.LeftShift) && _isOnGround)
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
         //player is on the ground
         if (collision.gameObject.CompareTag("Ground"))
         {
-            _isOnGround = true;
+            isOnGround = true;
         }
     }
 }

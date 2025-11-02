@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private bool _playerInRange;
     private EnemyPatrol _enemyPatrol;
     private EnemyChase _enemyChase;
+    private Block _block;
+    private Stunned _stunned;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -21,6 +23,10 @@ public class Enemy : MonoBehaviour
         _playerHealth = _player.GetComponent<Health>();
         //getting enemy patrol script of parent patrol object
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        //getting block script from player
+        _block = _player.GetComponent<Block>();
+        //getting stunned script
+        _stunned = GetComponentInParent<Stunned>();
     }
 
     // Update is called once per frame
@@ -37,11 +43,17 @@ public class Enemy : MonoBehaviour
         
         if (_playerInRange)
         {
-            if (_cooldownTimer >= attackCooldown)
+            if (_cooldownTimer >= attackCooldown && !_block.isBlocking)
             {
                 //attack
                 _cooldownTimer = 0;
                 DamagePlayer();
+            }
+            else if (_cooldownTimer >= attackCooldown && _block.isBlocking)
+            {
+                //enemy is stunned
+                _cooldownTimer = 0;
+                _stunned.StartStunCoroutine();
             }
         }
 
