@@ -16,6 +16,8 @@ RIGIDBODY - A "rigidbody" is a component that allows an object to be affected by
 
 LAYERS & TAGS - Unity uses "layers" and "tags" as helpful organization tools to separate game objects. Tags are a useful way to reference an object in a script.
 
+COROUTINE - A "coroutine" is a method that can pause execution and then resume after a certain amount of time.
+
 
 
 ### Gameplay:
