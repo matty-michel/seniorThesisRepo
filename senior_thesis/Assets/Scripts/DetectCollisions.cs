@@ -6,17 +6,20 @@ public class DetectCollisions : MonoBehaviour
     [SerializeField] private float yRange;
     private GameObject _player;
     private Health _playerHealth;
+    private Block _block;
 
     private void Awake()
     {
-        //getting player's health
+        //getting reference to player
         _player = GameObject.Find("Player");
+        //getting player's health & block scripts
         _playerHealth = _player.GetComponent<Health>();
+        _block = _player.GetComponent<Block>();
     }
 
     private void Update()
     {
-        //destroying projectiles if they fall past the ground
+        //destroying projectiles if they hit the ground
         if (transform.position.y <= yRange)
         {
             Destroy(gameObject);
@@ -28,8 +31,17 @@ public class DetectCollisions : MonoBehaviour
         //destroying the projectile & damaging the player when it collides with player
         if (other.CompareTag("Player"))
         {
-            Destroy(gameObject);
-            _playerHealth.TakeDamage(1);
+            if (!_block.isBlocking)
+            {
+                Destroy(gameObject);
+                _playerHealth.TakeDamage(1);  
+            }
+            //player is immune to damage from projectiles
+            else if (_block.isBlocking)
+            {
+                Destroy(gameObject);
+                Debug.Log("Projectile blocked");
+            }
         }
     }
 }
