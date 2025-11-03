@@ -112,22 +112,22 @@ I didn't realize deleting a layer would reorder all of the others, so I had to d
 
 ---
 
-## Week 7 Summary (MM/DD/YYYY)
+## Week 7 Summary (11/03/2025)
 ### This week I worked on:
 
-[Your answer here]
+I finished up most of the combat system by implementing a block mechanic & an enemy that can chase the player and then return to its patrol path. When holding shift, the enemy becomes immune to all attacks, including projectiles. Melee enemies become stunned for 3 seconds when they attempt to attack the player while they are blocking.
 
 ### This week I learned:
 
-[Your answer here]
+I am using a coroutine to stun the enemies for 3 seconds in a separate script. To call the coroutine from the attack script, I found that creating a public method in the stunned script that starts the coroutine was the easiest approach.
 
 ### My successes this week were:
 
-[Your answer here]
+I successfully implemented the last two features I wanted in the combat mechanics.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+There are still a few small bugs I'd like to revisit. When the player first enters an enemy's chase range, the enemy moves very quickly towards the player because I'm not normalizing the speed. I'll need to go back and change how I'm handling the enemy movement. Also, once the enemy is stunned for the first time, if the player continues to block, the enemy is able to push against the player before attacking again. I'd like to fix that issue at some point as well.
 
 ---
 
