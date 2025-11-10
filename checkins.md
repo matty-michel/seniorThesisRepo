@@ -131,22 +131,22 @@ There are still a few small bugs I'd like to revisit. When the player first ente
 
 ---
 
-## Week 8 Summary (MM/DD/YYYY)
+## Week 8 Summary (11/10/2025)
 ### This week I worked on:
 
-[Your answer here]
+I began working on my second sprint, which will consist of level design features like traps, obstacles, and powerups. This week, I added two obstacles, spikes and a crusher. If the player collides with the spikes object, they take damage & become slow. The crusher moves up and down between two points, and if the player stands beneath it, they are crushed and die.
 
 ### This week I learned:
 
-[Your answer here]
+I looked into assets to add to make my game more visually interesting, and learned that many assets for 2D use tilemaps. Tilemaps are grids that allow objects to be evenly placed, making level design easier. Some assets come with tilesets, which are sets of blocks that can make up the ground the player walks on. These assets can be pretty large, so I'm trying to find one that won't take up too much space.
 
 ### My successes this week were:
 
-[Your answer here]
+I have the beginnings of two obstalces for the player to interact with, did some research into assets for my game, and removed the camera from the player object & added a script for the camera to follow the player instead.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+There are a few additions I'd like to make to the spikes and crusher obstacles, like triggering the crusher only if the player is standing beneath it and setting up a coroutine to damage the player multiple times if they stand in the spikes.
 
 ---
 
