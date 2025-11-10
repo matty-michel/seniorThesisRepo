@@ -1,10 +1,14 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D _playerRigidBody;
     private float _horizontalInput;
+    
     public bool isOnGround = true;
+    private bool _hasPowerup;
+    
     public float speed;
     public float jumpForce;
     
@@ -18,19 +22,22 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         //only allows player to jump when they are on the ground
-        if (Input.GetKeyDown(KeyCode.Space) && isOnGround)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            //applies upward force immediately
-            _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-            //player is off the ground
-            isOnGround = false;
+            if (isOnGround)
+            {
+                //applies upward force immediately
+                _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                //player is off the ground
+                isOnGround = false;
+            }
+            //only allowing double jump when the player has a powerup
+            else if (_hasPowerup)
+            {
+                //applies upward force immediately
+                _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            }
         }
-        //player is blocking -- cannot move or attack
-        /*if(Input.GetKey(KeyCode.LeftShift) && _isOnGround)
-        {
-            //disable controller
-            //disable health script?
-        }*/
         
         //character moves back and forth
         _horizontalInput = Input.GetAxis("Horizontal");
@@ -45,5 +52,28 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
         }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Powerup"))
+        {
+            _hasPowerup = true;
+            Debug.Log("Got powerup");
+            
+            //destroying powerup
+            Destroy(collision.gameObject);
+            
+            //starts countdown routine
+            StartCoroutine(PowerupCountdownRoutine());
+        }
+    }
+
+    IEnumerator PowerupCountdownRoutine()
+    {
+        yield return new WaitForSeconds(10);
+        
+        _hasPowerup = false;
+        Debug.Log("Lost powerup");
     }
 }

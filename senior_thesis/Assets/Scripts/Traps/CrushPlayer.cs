@@ -3,61 +3,20 @@ using UnityEngine;
 
 public class CrushPlayer : MonoBehaviour
 {
-    [SerializeField] private float crushTimer;
-    
-    //private bool _playerInRange;
     private float _countdown;
-    
-    void Update()
+    private PlayerController _playerController;
+
+    void Awake()
     {
-        /*if (_playerInRange)
-        {
-            _countdown += Time.deltaTime;
-            
-            if (_countdown >= crushTimer)
-            {
-                _countdown = 0;
-            }
-        }
-        else
-        {
-            _countdown = 0;
-        }*/
-        
+        _playerController = GetComponent<PlayerController>();
     }
-
-    /*private void Slam(float direction)
-    {
-        Debug.Log("Slam");
-        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * downwardSpeed * direction, transform.position.z);
-    }
-
-    private void ChangeDirection()
-    {
-        _movingDown = !_movingDown;
-    }*/
-
-    /*private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _playerInRange = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            _playerInRange = false;
-        } 
-    }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        //only crushing player when they are caught between the crusher & the ground
+        if (collision.gameObject.CompareTag("Crusher") && _playerController.isOnGround)
         {
-            Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }

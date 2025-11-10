@@ -2,12 +2,15 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
+    [SerializeField] Collider2D playerCollider;
     private GameObject _player;
     private Health _playerHealth;
     private PlayerController _playerController;
+    
     private float _originalSpeed;
     private float _originalJumpForce;
-    [SerializeField] Collider2D playerCollider;
+    
+    //private float _cooldownTimer = Mathf.Infinity;
 
     void Awake()
     {
