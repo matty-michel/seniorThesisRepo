@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
         }
+        else if (collision.gameObject.CompareTag("MovingPlatform"))
+        {
+            isOnGround = true;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
