@@ -18,6 +18,8 @@ LAYERS & TAGS - Unity uses "layers" and "tags" as helpful organization tools to 
 
 COROUTINE - A "coroutine" is a method that can pause execution and then resume after a certain amount of time.
 
+CAMERA - A "camera" creates the view of the game scene that the player will see. There can be multiple cameras that can be switched between in a scene.
+
 
 
 ### Gameplay:
