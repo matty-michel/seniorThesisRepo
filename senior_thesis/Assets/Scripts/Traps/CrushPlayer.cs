@@ -3,46 +3,41 @@ using UnityEngine;
 
 public class CrushPlayer : MonoBehaviour
 {
-    [SerializeField] GameObject upperEdge;
-    [SerializeField] GameObject lowerEdge;
-    
-    [SerializeField] private float upwardSpeed;
-    [SerializeField] private float downwardSpeed;
-
     [SerializeField] private float crushTimer;
     
-    private bool _playerInRange;
-    private float _countdown = 0f;
-    private bool _movingDown;
-
-    // Update is called once per frame
+    //private bool _playerInRange;
+    private float _countdown;
+    
     void Update()
     {
-        if (_playerInRange)
+        /*if (_playerInRange)
         {
             _countdown += Time.deltaTime;
-            Debug.Log(_countdown);
+            
             if (_countdown >= crushTimer)
             {
-                Slam();
                 _countdown = 0;
-                //move back up
-                Debug.Log(_countdown);
             }
         }
         else
         {
             _countdown = 0;
-        }
+        }*/
         
     }
 
-    private void Slam()
+    /*private void Slam(float direction)
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * downwardSpeed, transform.position.z);
+        Debug.Log("Slam");
+        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * downwardSpeed * direction, transform.position.z);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void ChangeDirection()
+    {
+        _movingDown = !_movingDown;
+    }*/
+
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
@@ -56,13 +51,13 @@ public class CrushPlayer : MonoBehaviour
         {
             _playerInRange = false;
         } 
-    }
+    }*/
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<Health>().currentHealth = 0;
+            Destroy(collision.gameObject);
         }
     }
 }
