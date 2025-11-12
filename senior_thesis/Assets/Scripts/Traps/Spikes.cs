@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Spikes : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class Spikes : MonoBehaviour
     
     private float _originalSpeed;
     private float _originalJumpForce;
-    
-    //private float _cooldownTimer = Mathf.Infinity;
+
+    private bool _playerOnSpikes;
 
     void Awake()
     {
@@ -29,9 +30,10 @@ public class Spikes : MonoBehaviour
         //player takes damage & is slowed down when they hit spikes
         if (collision.collider == playerCollider)
         {
-            _playerHealth.TakeDamage(1);
+            _playerOnSpikes = true;
             _playerController.speed *= 0.5f;
             _playerController.jumpForce *= 0.5f;
+            StartCoroutine("DamagePlayer");
         }
     }
 
@@ -40,8 +42,19 @@ public class Spikes : MonoBehaviour
         //player speed & jump force are reset when they are no longer hitting spikes
         if (collision.collider == playerCollider)
         {
+            _playerOnSpikes = false;
             _playerController.speed = _originalSpeed;
             _playerController.jumpForce = _originalJumpForce;
+        }
+    }
+
+    IEnumerator DamagePlayer()
+    {
+        while (_playerOnSpikes)
+        {
+            _playerHealth.TakeDamage(1);
+        
+            yield return new WaitForSeconds(1.5f);
         }
     }
 }
