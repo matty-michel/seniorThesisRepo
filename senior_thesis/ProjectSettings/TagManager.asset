@@ -11,6 +11,7 @@ TagManager:
   - Powerup
   - HealthPickup
   - MovingPlatform
+  - Water
   layers:
   - Default
   - TransparentFX
