@@ -150,22 +150,22 @@ There are a few additions I'd like to make to the spikes and crusher obstacles, 
 
 ---
 
-## Week 9 Summary (MM/DD/YYYY)
+## Week 9 Summary (11/17/2025)
 ### This week I worked on:
 
-[Your answer here]
+I continued to work on my second sprint. I added improvements to the spikes and crusher traps from last week: the crusher script has been moved onto the player for easier collider checks, and I added a coroutine that damages the player over time if they stand on spikes. I also added a powerup that allows the player to double jump and a health pickup that restores the players health. Finally, I added a moving platform I plan to implement into level design, and started working on a water obstacle that can kill the player.
 
 ### This week I learned:
 
-[Your answer here]
+I had a bit of trouble getting the coroutine to work for my spikes, but I learned that using a while loop inside of a coroutine allows me to carry out the pause function continuously. I also struggled with updating the player's transform when on the moving platform. I was originally adding force to the rigidbody or updating the transform every frame, but then I figured out that I could just make the player a child of the platform when it collides with it, which automatically updates its transform.
 
 ### My successes this week were:
 
-[Your answer here]
+I made substantial progress in my second sprint, and the game mechanics are now more interesting.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I had some trouble with the water obstacle. I want to disable the player's movement script so the player sinks to the bottom and "drowns," but the inputs are still being read even after disabling the player controller script for some reason.
 
 ---
 
