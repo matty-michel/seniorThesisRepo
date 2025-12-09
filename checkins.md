@@ -169,22 +169,22 @@ I had some trouble with the water obstacle. I want to disable the player's movem
 
 ---
 
-## Week 10 Summary (MM/DD/YYYY)
+## Week 10 Summary (12/08/2025)
 ### This week I worked on:
 
-[Your answer here]
+I took a break from working on my thesis to focus on end-of-semester work for my other classes. Over break, I looked into assets to make the environment of my game more interesting & set up the levels. File size is an issue, so I may need to update my gitignore file so my github isn't cluttered with asset files.
 
 ### This week I learned:
 
-[Your answer here]
+Since I'm looking at assets from Unity's asset store, I may need to be careful about what I push onto github.
 
 ### My successes this week were:
 
-[Your answer here]
+I found several asset packs I'd like to implement and found a visual style I like for my game. This will help me when I'm designing my character art.
 
 ### The challenges I faced this week were:
 
-[Your answer here]
+I'm still a bit new to using github, so editing the gitignore file and being able to store all of these assets has posed a challenge for me. I've also had very little time to work on my thesis during these last few weeks of the semester due to other projects. I'll continue working on my thesis during J-Term, where I'll have much more time to work.
 
 ---
 
