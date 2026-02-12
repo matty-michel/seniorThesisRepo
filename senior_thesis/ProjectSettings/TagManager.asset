@@ -22,7 +22,7 @@ TagManager:
   - Ground
   - Enemy
   - Traps
-  - 
+  - Background
   - 
   - 
   - 
@@ -46,6 +46,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1485437027
+    locked: 0
+  - name: Player
+    uniqueID: 338870757
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
