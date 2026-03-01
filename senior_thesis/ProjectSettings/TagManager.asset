@@ -12,6 +12,7 @@ TagManager:
   - HealthPickup
   - MovingPlatform
   - Water
+  - Spikes
   layers:
   - Default
   - TransparentFX
@@ -51,6 +52,9 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 338870757
+    locked: 0
+  - name: Enemy
+    uniqueID: 3369230547
     locked: 0
   - name: Default
     uniqueID: 0

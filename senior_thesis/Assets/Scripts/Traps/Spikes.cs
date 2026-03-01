@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Spikes : MonoBehaviour
 {
-    [SerializeField] Collider2D playerCollider;
-    private GameObject _player;
+    //[SerializeField] Collider2D playerCollider;
+    //private GameObject _player;
     private Health _playerHealth;
     private PlayerController _playerController;
     
@@ -15,17 +15,38 @@ public class Spikes : MonoBehaviour
 
     void Awake()
     {
-        //getting player object
-        _player = GameObject.FindGameObjectWithTag("Player");
         //getting health & control scripts
-        _playerHealth = _player.GetComponent<Health>();
-        _playerController = _player.GetComponent<PlayerController>();
+        _playerHealth = GetComponent<Health>();
+        _playerController = GetComponent<PlayerController>();
         //setting original speed & jump force to reset in collision exit
         _originalSpeed = _playerController.speed;
         _originalJumpForce = _playerController.jumpForce;
+        Debug.Log(_originalSpeed);
+        Debug.Log(_originalJumpForce);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Spikes"))
+        {
+            _playerOnSpikes = true;
+            _playerController.speed *= 0.5f;
+            _playerController.jumpForce *= 0.5f;
+            StartCoroutine("DamagePlayer");
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Spikes"))
+        {
+            _playerOnSpikes = false;
+            _playerController.speed = _originalSpeed;
+            _playerController.jumpForce = _originalJumpForce; 
+        }
+    }
+
+    /*void OnCollisionEnter2D(Collision2D collision)
     {
         //player takes damage & is slowed down when they hit spikes
         if (collision.collider == playerCollider)
@@ -46,7 +67,7 @@ public class Spikes : MonoBehaviour
             _playerController.speed = _originalSpeed;
             _playerController.jumpForce = _originalJumpForce;
         }
-    }
+    }*/
 
     IEnumerator DamagePlayer()
     {
