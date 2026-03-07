@@ -7,7 +7,8 @@ public class PlayerController : MonoBehaviour
     private float _horizontalInput;
     
     public bool isOnGround = true;
-    private bool _hasPowerup;
+    private bool _hasPowerup = false;
+    private int _jumpCounter = 0;
     
     public float speed;
     public float jumpForce;
@@ -30,12 +31,18 @@ public class PlayerController : MonoBehaviour
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 //player is off the ground
                 isOnGround = false;
+                _jumpCounter++;
+                Debug.Log("Jump count (on ground): " + _jumpCounter);
             }
             //only allowing double jump when the player has a powerup
-            else if (_hasPowerup)
+            else if (_hasPowerup && _jumpCounter < 2)
             {
                 //applies upward force immediately
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                
+                //do something that prevents jumping
+                _jumpCounter++;
+                Debug.Log("Jump count (w/ powerup): " + _jumpCounter);
             }
         }
         
@@ -51,10 +58,12 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isOnGround = true;
+            _jumpCounter = 0;
         }
         else if (collision.gameObject.CompareTag("MovingPlatform"))
         {
             isOnGround = true;
+            _jumpCounter = 0;
         }
     }
 
