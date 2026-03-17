@@ -3,8 +3,8 @@ using System.Collections;
 
 public class Spikes : MonoBehaviour
 {
-    //[SerializeField] Collider2D playerCollider;
-    //private GameObject _player;
+    private Collider2D _playerCollider;
+    [SerializeField] GameObject player;
     private Health _playerHealth;
     private PlayerController _playerController;
     
@@ -16,8 +16,9 @@ public class Spikes : MonoBehaviour
     void Awake()
     {
         //getting health & control scripts
-        _playerHealth = GetComponent<Health>();
-        _playerController = GetComponent<PlayerController>();
+        _playerHealth = player.GetComponent<Health>();
+        _playerController = player.GetComponent<PlayerController>();
+        _playerCollider = player.GetComponent<Collider2D>();
         //setting original speed & jump force to reset in collision exit
         _originalSpeed = _playerController.speed;
         _originalJumpForce = _playerController.jumpForce;
@@ -27,18 +28,18 @@ public class Spikes : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Spikes"))
+        if (other == _playerCollider)
         {
             _playerOnSpikes = true;
             _playerController.speed *= 0.5f;
-            _playerController.jumpForce *= 0.5f;
+            //_playerController.jumpForce *= 0.5f;
             StartCoroutine("DamagePlayer");
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Spikes"))
+        if (other == _playerCollider)
         {
             _playerOnSpikes = false;
             _playerController.speed = _originalSpeed;
