@@ -50,6 +50,9 @@ TagManager:
   - name: Background
     uniqueID: 1485437027
     locked: 0
+  - name: Pickups
+    uniqueID: 707142671
+    locked: 0
   - name: Player
     uniqueID: 338870757
     locked: 0
