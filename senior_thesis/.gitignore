@@ -74,6 +74,7 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-#Assets from Unity's asset store
+#Assets from Unity's asset store & Open Game Art
 /[Aa]ssets/2D Pixel Art Platformer Biome - American Forest/
 /[Aa]ssets/Pixel Adventure 1/
+/[Aa]ssets/Treasure Hunters/
