@@ -71,10 +71,10 @@ public class Enemy : MonoBehaviour
     
     void DamagePlayer()
     {
-        //damage player when in range
+        //damage player when in ranges
         if (_playerInRange)
         {
-            _playerHealth.TakeDamage(damage);
+            _playerHealth.PlayerTakeDamage(damage);
         }
     }
 

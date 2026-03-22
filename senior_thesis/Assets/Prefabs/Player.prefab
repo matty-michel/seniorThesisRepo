@@ -122,11 +122,11 @@ GameObject:
   - component: {fileID: 9112636801798166800}
   - component: {fileID: 7947937076749742589}
   - component: {fileID: 493275047554753176}
-  - component: {fileID: 6458996966409595285}
   - component: {fileID: 5264196953991626982}
   - component: {fileID: 5804438944640482866}
   - component: {fileID: 4607919363437929303}
   - component: {fileID: 8610335418646065666}
+  - component: {fileID: 1879409784367210998}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d155abe5d24324a3a955004829e42a2c, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -192,8 +192,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 338870757
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -218,6 +218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c416028fbbc4edfb50fb35781e7067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthBar: {fileID: 0}
   isOnGround: 1
   speed: 7
   jumpForce: 7
@@ -294,20 +295,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &6458996966409595285
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5264648109184553723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2c241855b4d54292874f5d9c3c535e9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  currentHealth: 0
 --- !u!114 &5264196953991626982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -364,3 +351,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f408010ee7e35488da6e46fcabb2e655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1879409784367210998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5264648109184553723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2c241855b4d54292874f5d9c3c535e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 5
+  currentHealth: 0
+  healthBarObj: {fileID: 0}

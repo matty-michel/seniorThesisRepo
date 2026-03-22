@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 3;
+    [SerializeField] public int maxHealth = 3;
     public int currentHealth;
-    private bool _dead;
+    //private bool _dead;
+    [SerializeField] private GameObject healthBarObj;
+    private HealthBar _healthBar;
 
     void Start()
     {
-       currentHealth = maxHealth; 
+       currentHealth = maxHealth;
+       if (gameObject.CompareTag("Player"))
+       {
+           _healthBar = healthBarObj.GetComponent<HealthBar>();
+           _healthBar.SetMaxHealth(maxHealth);
+       }
     }
 
     public void TakeDamage(int damage)
@@ -18,36 +25,35 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         Debug.Log("current health: " + currentHealth);
         Debug.Log("damage: " + damage);
+        
         if (currentHealth > 0)
         {
             //alive
         }
         else
         {
-            if (!_dead)
-            {
-                //player dead
-                //disabling player controller script so player can no longer move
-                if (gameObject.GetComponent<PlayerController>() != null)
-                {
-                    gameObject.GetComponent<PlayerController>().enabled  = false;  
-                }
-            
-                //enemy dead
-                //disabling enemy scripts so enemy can no longer move
-                Destroy(gameObject);
-                /*if (gameObject.GetComponentInParent<EnemyPatrol>() != null)
-                {
-                    gameObject.GetComponentInParent<EnemyPatrol>().enabled = false;
-                }
+            Destroy(gameObject);
+            //_dead = true;
+        }
+    }
 
-                if (gameObject.GetComponent<Enemy>() != null)
-                {
-                    gameObject.GetComponent<Enemy>().enabled = false;
-                }*/
-
-                _dead = true;
-            }
+    public void PlayerTakeDamage(int damage)
+    {
+        //subtracting damage from health
+        //limits health to a min of 0 and a max of _maxHealth
+        currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
+        //updating health bar
+        _healthBar.SetHealth(currentHealth);
+        
+        if (currentHealth > 0)
+        {
+            //alive
+        }
+        else
+        {
+            Destroy(gameObject);
+            //death screen
+            //_dead = true;
         }
     }
 }

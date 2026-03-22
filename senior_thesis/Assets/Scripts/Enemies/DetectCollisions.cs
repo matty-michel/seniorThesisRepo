@@ -1,9 +1,10 @@
 using System;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class DetectCollisions : MonoBehaviour
 {
-    [SerializeField] private float yRange;
+    //[SerializeField] private float yRange;
     private GameObject _player;
     private Health _playerHealth;
     private Block _block;
@@ -16,18 +17,10 @@ public class DetectCollisions : MonoBehaviour
         _playerHealth = _player.GetComponent<Health>();
         _block = _player.GetComponent<Block>();
     }
-
-    private void Update()
-    {
-        //destroying projectiles if they hit the ground
-        if (transform.position.y <= yRange)
-        {
-            Destroy(gameObject);
-        }
-    }
-
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log(other.name);
         //destroying the projectile & damaging the player when it collides with player
         if (other.CompareTag("Player"))
         {

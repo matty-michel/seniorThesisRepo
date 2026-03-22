@@ -3,6 +3,9 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private HealthBar healthBar;
+    //private PlayerHealth health;
+    
     private Rigidbody2D _playerRigidBody;
     private float _horizontalInput;
     
@@ -13,13 +16,12 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public float jumpForce;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
+        //health = GetComponent<PlayerHealth>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         //only allows player to jump when they are on the ground

@@ -6,6 +6,7 @@ public class EnemyProjectile : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float spawnCooldown = 1.0f;
     [SerializeField] private float nextSpawnTime;
+    [SerializeField] private float yRange;
     
     void Update()
     {
@@ -16,11 +17,8 @@ public class EnemyProjectile : MonoBehaviour
             //sets nextSpawnTime to the current time + the cooldown time
             nextSpawnTime = Time.time + spawnCooldown;
         }
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Ground"))
+        if (projectilePrefab.transform.position.y <= (transform.position.y - yRange))
         {
             projectilePrefab.SetActive(false);
         }

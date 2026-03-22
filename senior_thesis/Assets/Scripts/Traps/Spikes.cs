@@ -74,7 +74,7 @@ public class Spikes : MonoBehaviour
     {
         while (_playerOnSpikes)
         {
-            _playerHealth.TakeDamage(1);
+            _playerHealth.PlayerTakeDamage(1);
         
             yield return new WaitForSeconds(1.5f);
         }
