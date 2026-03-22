@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -53,6 +54,7 @@ public class Health : MonoBehaviour
         {
             Destroy(gameObject);
             //death screen
+            SceneManager.LoadScene("Death Menu");
             //_dead = true;
         }
     }
