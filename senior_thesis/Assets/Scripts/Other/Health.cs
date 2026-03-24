@@ -5,7 +5,7 @@ public class Health : MonoBehaviour
 {
     [SerializeField] public int maxHealth = 3;
     public int currentHealth;
-    //private bool _dead;
+    public bool _dead;
     [SerializeField] private GameObject healthBarObj;
     private HealthBar _healthBar;
 
@@ -34,7 +34,6 @@ public class Health : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            //_dead = true;
         }
     }
 
@@ -52,10 +51,11 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             //death screen
-            SceneManager.LoadScene("Death Menu");
-            //_dead = true;
+            //SceneManager.LoadScene("Death Menu");
+            _dead = true;
+            //move player object to respawn point
         }
     }
 }
