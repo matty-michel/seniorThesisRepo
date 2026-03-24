@@ -11,15 +11,18 @@ public class Control : MonoBehaviour
 
     void Start()
     {
+        //getting player health
         _playerHealth = player.GetComponent<Health>();
     }
 
     void Update()
     {
+        //activating game over screen when player dies
         if (_playerHealth._dead)
         {
             GameOver();
         }
+        //activating pause menu when player presses 'P'
         else if(Input.GetKeyDown(KeyCode.P))
         {
             PauseGame();
@@ -27,22 +30,27 @@ public class Control : MonoBehaviour
     }
     public void LoadScene(string scene)
     {
+        //loading a scene
         SceneManager.LoadScene(scene);
     }
 
     public void Quit()
     {
+        //quitting game
         Application.Quit();
     }
 
     private void GameOver()
     {
+        //activating game over screen
         deathMenu.SetActive(true);
     }
 
     public void Respawn()
     {
+        //reloading current level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //deactivating game over screen
         deathMenu.SetActive(false);
     }
     

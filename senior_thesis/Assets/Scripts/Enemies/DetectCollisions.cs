@@ -27,7 +27,7 @@ public class DetectCollisions : MonoBehaviour
             if (!_block.isBlocking)
             {
                 Destroy(gameObject);
-                _playerHealth.TakeDamage(1);  
+                _playerHealth.PlayerTakeDamage(1);  
             }
             //player is immune to damage from projectiles
             else if (_block.isBlocking)
@@ -35,6 +35,10 @@ public class DetectCollisions : MonoBehaviour
                 Destroy(gameObject);
                 Debug.Log("Projectile blocked");
             }
+        }
+        else if (other.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
         }
     }
 }

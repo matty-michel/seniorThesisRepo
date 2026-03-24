@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
             Health enemyHealth = _hits[i].collider.GetComponent<Health>();
             if (enemyHealth != null)
             {
-                enemyHealth.TakeDamage(damage);
+                enemyHealth.EnemyTakeDamage(damage);
             }
             
             //accessing each enemy's rigidbody

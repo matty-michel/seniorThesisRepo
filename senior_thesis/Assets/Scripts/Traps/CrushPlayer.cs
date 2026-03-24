@@ -19,7 +19,8 @@ public class CrushPlayer : MonoBehaviour
         if (collision.gameObject.CompareTag("Crusher") && _playerController.isOnGround)
         {
             //killing player
-            _playerHealth.PlayerTakeDamage(_playerHealth.maxHealth);
+            //_playerHealth.PlayerTakeDamage(_playerHealth.maxHealth);
+            _playerHealth._dead = true;
         }
     }
 }

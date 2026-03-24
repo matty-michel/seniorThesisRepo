@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
        }
     }
 
-    public void TakeDamage(int damage)
+    public void EnemyTakeDamage(int damage)
     {
         //subtracting damage from health
         //limits health to a min of 0 and a max of _maxHealth
