@@ -13,6 +13,7 @@ TagManager:
   - MovingPlatform
   - Water
   - Spikes
+  - Music
   layers:
   - Default
   - TransparentFX
