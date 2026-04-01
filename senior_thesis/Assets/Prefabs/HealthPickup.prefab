@@ -139,3 +139,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCollider: {fileID: 0}
   healthAmount: 1
+  gotPickupSound: {fileID: 8300000, guid: 0b5de865586844050b285d4a3fd6b033, type: 3}

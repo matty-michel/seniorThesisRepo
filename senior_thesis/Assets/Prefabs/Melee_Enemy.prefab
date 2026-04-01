@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8384189299568392959}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LeftEdge
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}
@@ -387,7 +387,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  healthBarObj: {fileID: 0}
+  playerHitSound: {fileID: 8300000, guid: 902828a83676948b2a085a2c006596fd, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: 893f218bd3d93406c867dec435b15af8, type: 3}
   currentHealth: 0
+  _dead: 0
 --- !u!114 &4214933163310400382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,9 +429,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1289000742545983515}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Melee_Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -459,7 +463,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7045820862534530619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RightEdge
   m_TagString: Untagged
   m_Icon: {fileID: 3443629218296621865, guid: 0000000000000000d000000000000000, type: 0}

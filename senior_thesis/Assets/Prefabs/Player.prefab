@@ -218,7 +218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17c416028fbbc4edfb50fb35781e7067, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 76f8c00779b924bd1afa3e7a8ca2fa3e, type: 3}
+  doubleJumpSound: {fileID: 8300000, guid: fd756b7f576b14641a6a60c8ec03d86e, type: 3}
+  gotPowerupSound: {fileID: 8300000, guid: 5671d5483395f4d3abb7d9d0380a5e88, type: 3}
   isOnGround: 1
   speed: 7
   jumpForce: 7
@@ -364,5 +366,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 5
-  currentHealth: 0
   healthBarObj: {fileID: 0}
+  playerHitSound: {fileID: 8300000, guid: 902828a83676948b2a085a2c006596fd, type: 3}
+  enemyHitSound: {fileID: 8300000, guid: 893f218bd3d93406c867dec435b15af8, type: 3}
+  currentHealth: 0
+  _dead: 0

@@ -3,15 +3,17 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private HealthBar healthBar;
-    //private PlayerHealth health;
+    [SerializeField] private AudioClip jumpSound;
+    [SerializeField] private AudioClip doubleJumpSound;
+    [SerializeField] private AudioClip gotPowerupSound;
+    //[SerializeField] private AudioClip lostPowerupSound;
     
     private Rigidbody2D _playerRigidBody;
     private float _horizontalInput;
     
     public bool isOnGround = true;
-    private bool _hasPowerup = false;
-    private int _jumpCounter = 0;
+    private bool _hasPowerup;
+    private int _jumpCounter;
     
     public float speed;
     public float jumpForce;
@@ -19,7 +21,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
-        //health = GetComponent<PlayerHealth>();
     }
     
     void Update()
@@ -33,8 +34,11 @@ public class PlayerController : MonoBehaviour
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 //player is off the ground
                 isOnGround = false;
+                //update jump counter
                 _jumpCounter++;
                 Debug.Log("Jump count (on ground): " + _jumpCounter);
+                //play jump sound
+                SoundManager.Instance.PlayAudio(jumpSound);
             }
             //only allowing double jump when the player has a powerup
             else if (_hasPowerup && _jumpCounter < 2)
@@ -42,9 +46,12 @@ public class PlayerController : MonoBehaviour
                 //applies upward force immediately
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 
-                //do something that prevents jumping
+                //update jump counter
                 _jumpCounter++;
                 Debug.Log("Jump count (w/ powerup): " + _jumpCounter);
+                
+                //play double jump sound
+                SoundManager.Instance.PlayAudio(doubleJumpSound);
             }
         }
         
@@ -79,6 +86,9 @@ public class PlayerController : MonoBehaviour
             //destroying powerup
             Destroy(collision.gameObject);
             
+            //playing powerup sound
+            SoundManager.Instance.PlayAudio(gotPowerupSound);
+            
             //starts countdown routine
             StartCoroutine(PowerupCountdownRoutine());
         }
@@ -90,5 +100,7 @@ public class PlayerController : MonoBehaviour
         
         _hasPowerup = false;
         Debug.Log("Lost powerup");
+        
+        //playing lost powerup sound
     }
 }
