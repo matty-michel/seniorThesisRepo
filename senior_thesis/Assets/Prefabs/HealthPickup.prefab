@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 78032347567241457}
   - component: {fileID: 8427359873448824177}
   - component: {fileID: 802113709950264334}
+  - component: {fileID: 5139797848817455502}
   m_Layer: 0
   m_Name: HealthPickup
   m_TagString: HealthPickup
@@ -140,3 +141,25 @@ MonoBehaviour:
   playerCollider: {fileID: 0}
   healthAmount: 1
   gotPickupSound: {fileID: 8300000, guid: 0b5de865586844050b285d4a3fd6b033, type: 3}
+--- !u!95 &5139797848817455502
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7555886386249955277}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1a2627dcc8df14dfd8d146b0c4773497, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
