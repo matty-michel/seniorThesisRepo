@@ -80,3 +80,6 @@ crashlytics-build.properties
 /[Aa]ssets/Tiny Swords/
 /[Aa]ssets/Cyberleaf Music - The 8-bit Jukebox Lite/
 /[Aa]ssets/Game Sound Solutions - 8 bits Elements/
+
+#Animations using imported assets
+/[Aa]ssets/Animations/
