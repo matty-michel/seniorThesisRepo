@@ -4,13 +4,16 @@ public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioClip jumpSound;
     private PlayerController _playerController;
     private Rigidbody2D _rigidbody;
+    private Animator _animator;
 
     private void Start()
     {
         _playerController = player.GetComponent<PlayerController>();
         _rigidbody = player.GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -21,6 +24,19 @@ public class Trampoline : MonoBehaviour
             _playerController.isOnGround = false;
             //add upward force to player
             _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            //setting animation parameter
+            _animator.SetBool("Jump", true);
+            //playing jump sound
+            SoundManager.Instance.PlayAudio(jumpSound);
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.collider.CompareTag("Player"))
+        {
+            //setting animation parameter
+            _animator.SetBool("Jump", false);
         }
     }
 }
