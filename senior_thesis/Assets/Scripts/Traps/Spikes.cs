@@ -22,8 +22,6 @@ public class Spikes : MonoBehaviour
         //setting original speed & jump force to reset in collision exit
         _originalSpeed = _playerController.speed;
         _originalJumpForce = _playerController.jumpForce;
-        Debug.Log(_originalSpeed);
-        Debug.Log(_originalJumpForce);
     }
 
     void OnTriggerEnter2D(Collider2D other)

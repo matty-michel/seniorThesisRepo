@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     private float _horizontalInput;
     
     public bool isOnGround = true;
-    private bool _hasPowerup;
+    private bool hasPowerup;
     private int _jumpCounter;
     
     public float speed;
@@ -32,23 +32,24 @@ public class PlayerController : MonoBehaviour
             {
                 //applies upward force immediately
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                
                 //player is off the ground
                 isOnGround = false;
+                
                 //update jump counter
                 _jumpCounter++;
-                Debug.Log("Jump count (on ground): " + _jumpCounter);
+                
                 //play jump sound
                 SoundManager.Instance.PlayAudio(jumpSound);
             }
             //only allowing double jump when the player has a powerup
-            else if (_hasPowerup && _jumpCounter < 2)
+            else if (hasPowerup && _jumpCounter < 2)
             {
                 //applies upward force immediately
                 _playerRigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 
                 //update jump counter
                 _jumpCounter++;
-                Debug.Log("Jump count (w/ powerup): " + _jumpCounter);
                 
                 //play double jump sound
                 SoundManager.Instance.PlayAudio(doubleJumpSound);
@@ -76,29 +77,32 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.gameObject.CompareTag("Powerup"))
+        if (other.gameObject.CompareTag("Powerup"))
         {
-            _hasPowerup = true;
-            Debug.Log("Got powerup");
+            hasPowerup = true;
             
-            //destroying powerup
-            Destroy(collision.gameObject);
+            //setting animator parameter
+            other.gameObject.GetComponent<Animator>().SetBool("Collected", true);
             
             //playing powerup sound
             SoundManager.Instance.PlayAudio(gotPowerupSound);
             
-            //starts countdown routine
+            //starts countdown routine from player controller
             StartCoroutine(PowerupCountdownRoutine());
+            
+            //destroying powerup
+            Destroy(other.gameObject, 0.5f);
         }
     }
 
-    IEnumerator PowerupCountdownRoutine()
+    public IEnumerator PowerupCountdownRoutine()
     {
+        //powerup active for 10 seconds
         yield return new WaitForSeconds(10);
         
-        _hasPowerup = false;
+        hasPowerup = false;
         Debug.Log("Lost powerup");
         
         //playing lost powerup sound
