@@ -76,12 +76,6 @@ crashlytics-build.properties
 
 #Assets from Unity's asset store & Open Game Art
 /[Aa]ssets/Imported Assets/
-/[Aa]ssets/2D Pixel Art Platformer Biome - American Forest/
-/[Aa]ssets/Pixel Adventure 1/
-/[Aa]ssets/Tiny Swords/
-/[Aa]ssets/Cyberleaf Music - The 8-bit Jukebox Lite/
-/[Aa]ssets/Game Sound Solutions - 8 bits Elements/
-/[Aa]ssets/SunnyLand Artwork/
 
 #Animations using imported assets
 /[Aa]ssets/Animations/
