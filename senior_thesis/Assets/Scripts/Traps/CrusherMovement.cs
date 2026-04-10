@@ -50,7 +50,11 @@ public class CrusherMovement : MonoBehaviour
 
     void ChangeDirection()
     {
+        //change movement direction
         _movingDown = !_movingDown;
+        
+        //play hit animation
+        _animator.SetBool("Hit", true);
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -61,19 +65,19 @@ public class CrusherMovement : MonoBehaviour
             //killing player
             _playerHealth._dead = true; 
         }
-        else if (collision.gameObject.CompareTag("Ground"))
+        /*else if (collision.gameObject.CompareTag("Ground"))
         {
             //play animation
             _animator.SetBool("Hit", true);
-        }
+        }*/
     }
 
-    void OnCollisionExit2D(Collision2D collision)
+    /*void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             //play animation
             _animator.SetBool("Hit", false);
         }
-    }
+    }*/
 }

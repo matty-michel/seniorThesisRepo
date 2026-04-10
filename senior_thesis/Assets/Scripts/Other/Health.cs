@@ -7,6 +7,8 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject healthBarObj;
     [SerializeField] private AudioClip playerHitSound;
     [SerializeField] private AudioClip enemyHitSound;
+    
+    private Animator _animator;
     public int currentHealth;
     public bool _dead;
     private HealthBar _healthBar;
@@ -15,6 +17,8 @@ public class Health : MonoBehaviour
     {
         //setting current health to max
        currentHealth = maxHealth;
+       _animator = GetComponent<Animator>();
+       
        //getting reference to health bar for player object
        if (gameObject.CompareTag("Player"))
        {
@@ -49,6 +53,9 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         //updating health bar
         _healthBar.SetHealth(currentHealth);
+        
+        //playing hit animation
+        _animator.SetTrigger("Hit");
         
         //play hit sound
         SoundManager.Instance.PlayAudio(playerHitSound);
