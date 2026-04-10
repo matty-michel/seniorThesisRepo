@@ -54,7 +54,7 @@ public class CrusherMovement : MonoBehaviour
         _movingDown = !_movingDown;
         
         //play hit animation
-        _animator.SetBool("Hit", true);
+        _animator.SetTrigger("Hit");
     }
 
     void OnCollisionEnter2D(Collision2D collision)

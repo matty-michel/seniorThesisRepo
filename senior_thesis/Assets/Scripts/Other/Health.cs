@@ -42,7 +42,9 @@ public class Health : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            _dead = true;
+            _animator.SetTrigger("Dead");
+            Destroy(gameObject, 0.5f);
         }
     }
 

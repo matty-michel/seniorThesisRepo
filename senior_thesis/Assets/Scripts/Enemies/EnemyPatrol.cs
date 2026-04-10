@@ -7,6 +7,7 @@ public class EnemyPatrol : MonoBehaviour
     
     [SerializeField] private float speed = 1f;
     
+    private SpriteRenderer _spriteRenderer;
     private Vector3 _initScale;
     private bool _movingLeft;
 
@@ -14,6 +15,7 @@ public class EnemyPatrol : MonoBehaviour
     {
         //storing scale of enemy
         _initScale = transform.localScale;
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     // Update is called once per frame
@@ -55,6 +57,17 @@ public class EnemyPatrol : MonoBehaviour
     {
         //enemy faces this direction--x can be negative or positive
         //transform.localScale = new Vector3(Mathf.Abs(_initScale.x) * direction, _initScale.y, _initScale.z);
+
+        //flipping enemy sprite right
+        if (direction > 0.01f)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        //flipping enemy sprite left
+        else if (direction < -0.01f)
+        {
+            _spriteRenderer.flipX = false;
+        }
         
         //enemy moves in this direction
         transform.position = new Vector3(transform.position.x + Time.deltaTime * direction * speed, transform.position.y, transform.position.z);

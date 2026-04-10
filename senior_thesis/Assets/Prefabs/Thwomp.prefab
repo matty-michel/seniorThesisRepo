@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285167965507710115}
   - component: {fileID: 8742859666746233024}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CrushRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 862094027586478089}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.99, z: 0}
+  m_LocalPosition: {x: 0, y: -0.658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -66,7 +66,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.8071383}
+  m_Offset: {x: -0.0033323467, y: 0.21134534}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +76,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 2.6142771}
+  m_Size: {x: 0.30673242, y: 0.57731}
   m_EdgeRadius: 0
 --- !u!1 &3331794655475958799
 GameObject:
@@ -103,7 +103,7 @@ Transform:
   m_GameObject: {fileID: 3331794655475958799}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.33603, y: -2.51, z: 0}
+  m_LocalPosition: {x: -3.4100008, y: -1.9, z: 0}
   m_LocalScale: {x: 2.14, y: 2.14, z: 2.14}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -122,9 +122,10 @@ GameObject:
   - component: {fileID: 6753097546671579947}
   - component: {fileID: 3491635880864202837}
   - component: {fileID: 6040238683539060435}
-  m_Layer: 0
+  - component: {fileID: 7892390427201416881}
+  m_Layer: 8
   m_Name: Thwomp
-  m_TagString: Untagged
+  m_TagString: Crusher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -138,8 +139,8 @@ Transform:
   m_GameObject: {fileID: 6595398751500330939}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.33603, y: 3.08153, z: 0}
-  m_LocalScale: {x: 2.14, y: 2.14, z: 2.14}
+  m_LocalPosition: {x: -3.25, y: 2.18, z: 0}
+  m_LocalScale: {x: 6.6988425, y: 6.7371483, z: 2.14}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2285167965507710115}
@@ -189,8 +190,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.1273585, b: 0.1273585, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 282fa6659f7eabb4f88d7cd347ae7723, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -213,7 +214,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -234,17 +235,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.00000040233135, y: 0.000000074505806}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 0.42, y: 0.42}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.33554754, y: 0.32}
   m_EdgeRadius: 0
 --- !u!50 &3491635880864202837
 Rigidbody2D:
@@ -287,7 +288,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upperEdge: {fileID: 6860898799265485484}
   lowerEdge: {fileID: 3331794655475958799}
-  speed: 5
+  speed: 3
+--- !u!95 &7892390427201416881
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6595398751500330939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 30dc9a91a9ed649709488cbb65c7eea2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6860898799265485484
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,7 +336,7 @@ Transform:
   m_GameObject: {fileID: 6860898799265485484}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.33603, y: 3.08153, z: 0}
+  m_LocalPosition: {x: -3.4100008, y: 2.2, z: 0}
   m_LocalScale: {x: 2.14, y: 2.14, z: 2.14}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -328,9 +351,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5381940750921106663}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Thwomp
-  m_TagString: Untagged
+  m_TagString: Crusher
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,14 +8,12 @@ public class EnemyChase : MonoBehaviour
     private EnemyPatrol _enemyPatrol;
     private bool _playerInRange;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         //getting enemy patrol script
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         if (_playerInRange)
