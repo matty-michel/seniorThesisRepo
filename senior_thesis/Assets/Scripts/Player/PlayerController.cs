@@ -77,8 +77,8 @@ public class PlayerController : MonoBehaviour
         //character moves back and forth
         _horizontalInput = Input.GetAxis("Horizontal");
         //must use Vector3 for transform.Translate
-        //_playerRigidBody.linearVelocity = new Vector2(_horizontalInput * speed, _playerRigidBody.linearVelocity.y);
-        transform.Translate(Vector3.right * _horizontalInput * Time.deltaTime * speed);
+        _playerRigidBody.linearVelocity = new Vector2(_horizontalInput * speed, _playerRigidBody.linearVelocity.y);
+        //transform.Translate(Vector3.right * _horizontalInput * Time.deltaTime * speed);
         
         //setting run animation
         _playerAnimator.SetBool("Running", _horizontalInput != 0);
