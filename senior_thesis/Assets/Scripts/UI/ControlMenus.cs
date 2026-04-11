@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class ControlMenus : MonoBehaviour
 {
@@ -34,14 +35,12 @@ public class ControlMenus : MonoBehaviour
     {
         //activating game over screen
         deathMenu.SetActive(true);
+        //play sound
     }
 
     public void Respawn()
     {
-        //reloading current level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        //deactivating game over screen
-        deathMenu.SetActive(false);
+        StartCoroutine(DelayRespawn());
     }
     
     private void PauseGame()
@@ -64,5 +63,14 @@ public class ControlMenus : MonoBehaviour
         pauseMenu.SetActive(false);
         //showing health bar
         healthBar.SetActive(true);
+    }
+
+    private IEnumerator DelayRespawn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        //reloading current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //deactivating game over screen
+        deathMenu.SetActive(false);
     }
 }
