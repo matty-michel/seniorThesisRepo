@@ -55,9 +55,9 @@ public class Health : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         //updating health bar
         _healthBar.SetHealth(currentHealth);
-        
+
         //playing hit animation
-        _animator.SetTrigger("Hit");
+        _animator.CrossFadeInFixedTime("Player_Hit", 0.2f);
         
         //play hit sound
         SoundManager.Instance.PlayAudio(playerHitSound);
