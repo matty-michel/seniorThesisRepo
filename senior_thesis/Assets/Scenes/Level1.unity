@@ -21879,10 +21879,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projectile 1
       objectReference: {fileID: 0}
-    - target: {fileID: 3294702651778150791, guid: e281c8e4e4a8443919dca3f07bb021f3, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6243822093550582862, guid: e281c8e4e4a8443919dca3f07bb021f3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36
@@ -23950,7 +23946,7 @@ PrefabInstance:
       objectReference: {fileID: 580559376}
     - target: {fileID: 2060447885125252819, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2060447885125252819, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -23991,6 +23987,10 @@ PrefabInstance:
     - target: {fileID: 4385559436768440247, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1924138
+      objectReference: {fileID: 0}
+    - target: {fileID: 5264196953991626982, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
+      propertyPath: attackCooldown
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5264648109184553723, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_Name

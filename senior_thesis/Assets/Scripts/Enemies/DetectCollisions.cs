@@ -9,6 +9,7 @@ public class DetectCollisions : MonoBehaviour
     private Block _block;
     
     private Animator _animator;
+    private AudioSource _audio;
 
     private void Awake()
     {
@@ -19,10 +20,13 @@ public class DetectCollisions : MonoBehaviour
         _block = _player.GetComponent<Block>();
         //getting animator from childed object with sprite renderer
         _animator = GetComponentInChildren<Animator>();
+        //getting audio source
+        _audio = GetComponent<AudioSource>();
     }
     
     void Update()
     {
+        //moving projectile down
         transform.Translate(Vector3.down * speed * Time.deltaTime);
     }
     
@@ -35,6 +39,8 @@ public class DetectCollisions : MonoBehaviour
             _animator.SetTrigger("Hit");
             //setting speed to 0 so projectile stops moving
             speed = 0;
+            //playing audio
+            _audio.Play();
             
             if (!_block.isBlocking)
             {
@@ -54,6 +60,9 @@ public class DetectCollisions : MonoBehaviour
             _animator.SetTrigger("Hit");
             //setting speed to 0 so projectile stops moving
             speed = 0;
+            //playing audio
+            _audio.Play();
+            
             Destroy(gameObject, 0.5f);
         }
     }
