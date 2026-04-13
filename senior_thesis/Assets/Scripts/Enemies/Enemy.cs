@@ -14,7 +14,6 @@ public class Enemy : MonoBehaviour
     private Block _block;
     private Stunned _stunned;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
         //getting player
@@ -28,8 +27,7 @@ public class Enemy : MonoBehaviour
         //getting stunned script
         _stunned = GetComponentInParent<Stunned>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         //enemy does not try to attack player when the player is dead

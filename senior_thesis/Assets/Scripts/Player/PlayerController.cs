@@ -60,6 +60,9 @@ public class PlayerController : MonoBehaviour
                 
                 //play double jump sound
                 SoundManager.Instance.PlayAudio(doubleJumpSound);
+                
+                //playing double jump animation
+                _playerAnimator.CrossFadeInFixedTime("Player_DoubleJump", 0.5f);
             }
         }
 
@@ -82,8 +85,6 @@ public class PlayerController : MonoBehaviour
         
         //setting run animation
         _playerAnimator.SetBool("Running", _horizontalInput != 0);
-        //set double jump animation
-        _playerAnimator.SetBool("DoubleJump", hasPowerup && _jumpCounter < 2);
         //setting jump animation
         _playerAnimator.SetBool("Grounded", isOnGround);
     }

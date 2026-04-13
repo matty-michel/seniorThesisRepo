@@ -2,19 +2,24 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    //RaycastHit detects colliders within its range
-    private RaycastHit2D[] _hits;
+    [SerializeField] private float attackCooldown;
     [SerializeField] private float attackRange = 2f;
     [SerializeField] private Transform attackTransform;
     [SerializeField] private LayerMask attackableLayer;
     [SerializeField] private int damage = 1;
     [SerializeField] private float pushbackForce = 5f;
-    //private Health _enemyHealth;
+    
+    //RaycastHit detects colliders within its range
+    private RaycastHit2D[] _hits;
+    //cooldown timer for attack
+    private float _cooldownTimer = Mathf.Infinity;
     
     private void Update()
     {
-        //attacking when player presses "E"
-        if (Input.GetKeyDown(KeyCode.E))
+        _cooldownTimer += Time.deltaTime;
+        
+        //attacking when player presses "E" & cooldown is over
+        if (Input.GetKeyDown(KeyCode.E) && _cooldownTimer >= attackCooldown)
         {
            Attack(); 
         }
@@ -22,6 +27,9 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
+        //resetting cooldown timer
+        _cooldownTimer = 0;
+        
         //filling _hits array with any enemies within range
         _hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, Vector2.right, 0f, attackableLayer);
 
