@@ -30,7 +30,7 @@ public class HealthPickup : MonoBehaviour
             //destroy pickup
             Destroy(gameObject, 0.5f);
             //add to player's health
-            _playerHealth.currentHealth += healthAmount;
+            _playerHealth.currentHealth = Mathf.Clamp(_playerHealth.currentHealth + healthAmount, 0, _playerHealth.maxHealth);
             //update health bar
             _healthBar.SetHealth(_playerHealth.currentHealth);
         }
