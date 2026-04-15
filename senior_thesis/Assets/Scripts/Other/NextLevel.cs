@@ -1,15 +1,18 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField] Collider2D playerCollider;
+    //private Collider2D _playerCollider;
+    [SerializeField] private GameObject winMenu;
+    
     void OnTriggerEnter2D(Collider2D other)
     {
-        //loading the next level by scene index
-        if (other == playerCollider)
+        if (other.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            //freezing scene
+            Time.timeScale = 0;
+            //activating win menu
+            winMenu.SetActive(true);
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
@@ -8,6 +9,12 @@ public class Control : MonoBehaviour
     {
         //loading a scene immediately
         SceneManager.LoadScene(scene);
+    }
+    
+    public void NextLevel()
+    {
+        //loading next level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     //void function that can be called from OnClick
