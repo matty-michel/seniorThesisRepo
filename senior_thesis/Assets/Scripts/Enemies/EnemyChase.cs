@@ -2,14 +2,15 @@ using UnityEngine;
 
 public class EnemyChase : MonoBehaviour
 {
-    [SerializeField] private GameObject player;
-    //[SerializeField] private float speed;
     [SerializeField] private Collider2D chaseRange;
+    private GameObject _player;
     private EnemyPatrol _enemyPatrol;
     private bool _playerInRange;
     
     void Awake()
     {
+        //getting player
+        _player = GameObject.FindGameObjectWithTag("Player");
         //getting enemy patrol script
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
     }
@@ -19,7 +20,7 @@ public class EnemyChase : MonoBehaviour
         if (_playerInRange)
         {
             //Vector2 moveDirection = (player.transform.position - transform.position).normalized;
-            float moveDirection = player.transform.position.x - transform.position.x;
+            float moveDirection = _player.transform.position.x - transform.position.x;
             _enemyPatrol.MoveInDirection(moveDirection);
             //MoveTowardsPlayer();
         }

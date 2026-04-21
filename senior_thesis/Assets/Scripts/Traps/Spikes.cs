@@ -4,7 +4,7 @@ using System.Collections;
 public class Spikes : MonoBehaviour
 {
     private Collider2D _playerCollider;
-    [SerializeField] GameObject player;
+    private GameObject _player;
     private Health _playerHealth;
     private PlayerController _playerController;
     
@@ -15,10 +15,12 @@ public class Spikes : MonoBehaviour
 
     void Awake()
     {
+        //getting player
+        _player = GameObject.FindGameObjectWithTag("Player");
         //getting health & control scripts
-        _playerHealth = player.GetComponent<Health>();
-        _playerController = player.GetComponent<PlayerController>();
-        _playerCollider = player.GetComponent<Collider2D>();
+        _playerHealth = _player.GetComponent<Health>();
+        _playerController = _player.GetComponent<PlayerController>();
+        _playerCollider = _player.GetComponent<Collider2D>();
         //setting original speed & jump force to reset in collision exit
         _originalSpeed = _playerController.speed;
         _originalJumpForce = _playerController.jumpForce;

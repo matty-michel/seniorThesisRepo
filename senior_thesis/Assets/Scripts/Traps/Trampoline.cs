@@ -3,16 +3,17 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float jumpForce;
-    [SerializeField] private GameObject player;
     [SerializeField] private AudioClip jumpSound;
+    private GameObject _player;
     private PlayerController _playerController;
     private Rigidbody2D _rigidbody;
     private Animator _animator;
 
     private void Start()
     {
-        _playerController = player.GetComponent<PlayerController>();
-        _rigidbody = player.GetComponent<Rigidbody2D>();
+        _player = GameObject.FindGameObjectWithTag("Player");
+        _playerController = _player.GetComponent<PlayerController>();
+        _rigidbody = _player.GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
     }
 
