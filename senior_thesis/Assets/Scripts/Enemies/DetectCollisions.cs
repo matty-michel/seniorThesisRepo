@@ -54,6 +54,7 @@ public class DetectCollisions : MonoBehaviour
                 Debug.Log("Projectile blocked");
             }
         }
+        //destroying projectile if it hits the ground
         else if (other.CompareTag("Ground"))
         {
             //playing fireball explosion animation

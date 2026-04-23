@@ -11,9 +11,9 @@ TagManager:
   - Powerup
   - HealthPickup
   - MovingPlatform
-  - Water
   - Spikes
   - Music
+  - Projectile
   layers:
   - Default
   - TransparentFX

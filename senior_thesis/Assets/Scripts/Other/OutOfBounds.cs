@@ -19,5 +19,10 @@ public class OutOfBounds : MonoBehaviour
         {
             Destroy(other.gameObject);
         }
+        //destroying projectiles that fall out of bounds
+        else if (other.CompareTag("Projectile"))
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
