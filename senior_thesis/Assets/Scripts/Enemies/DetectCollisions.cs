@@ -15,9 +15,13 @@ public class DetectCollisions : MonoBehaviour
     {
         //getting reference to player
         _player = GameObject.Find("Player");
-        //getting player's health & block scripts
-        _playerHealth = _player.GetComponent<Health>();
-        _block = _player.GetComponent<Block>();
+        if (_player != null)
+        {
+            //getting player's health & block scripts
+            _playerHealth = _player.GetComponent<Health>();
+            _block = _player.GetComponent<Block>();
+        }
+
         //getting animator from childed object with sprite renderer
         _animator = GetComponentInChildren<Animator>();
         //getting audio source

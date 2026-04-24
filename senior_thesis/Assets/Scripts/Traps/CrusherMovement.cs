@@ -63,21 +63,12 @@ public class CrusherMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Player") && _playerController.isOnGround)
         {
             //killing player
-            _playerHealth._dead = true; 
+            _playerHealth.currentHealth = 0; 
         }
-        /*else if (collision.gameObject.CompareTag("Ground"))
+        else if (collision.gameObject.CompareTag("Enemy"))
         {
-            //play animation
-            _animator.SetBool("Hit", true);
-        }*/
+            //killing enemy
+            collision.gameObject.GetComponent<Health>().currentHealth = 0;
+        }
     }
-
-    /*void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            //play animation
-            _animator.SetBool("Hit", false);
-        }
-    }*/
 }

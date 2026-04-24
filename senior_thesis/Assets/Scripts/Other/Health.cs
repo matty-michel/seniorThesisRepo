@@ -4,10 +4,10 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField] public int maxHealth = 3;
-    [SerializeField] private GameObject healthBarObj;
     [SerializeField] private AudioClip playerHitSound;
     [SerializeField] private AudioClip enemyHitSound;
     
+    private GameObject _healthBarObj;
     private Animator _animator;
     public int currentHealth;
     public bool _dead;
@@ -22,9 +22,20 @@ public class Health : MonoBehaviour
        //getting reference to health bar for player object
        if (gameObject.CompareTag("Player"))
        {
-           _healthBar = healthBarObj.GetComponent<HealthBar>();
+           _healthBarObj = GameObject.Find("Health Bar");
+           _healthBar = _healthBarObj.GetComponent<HealthBar>();
            _healthBar.SetMaxHealth(maxHealth);
        }
+    }
+
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            _dead = true;
+            _animator.SetTrigger("Dead");
+            Destroy(gameObject, 0.5f);
+        }
     }
 
     public void EnemyTakeDamage(int damage)
@@ -35,17 +46,6 @@ public class Health : MonoBehaviour
         
         //play hit sound
         SoundManager.Instance.PlayAudio(enemyHitSound);
-        
-        if (currentHealth > 0)
-        {
-            //alive
-        }
-        else
-        {
-            _dead = true;
-            _animator.SetTrigger("Dead");
-            Destroy(gameObject, 0.5f);
-        }
     }
 
     public void PlayerTakeDamage(int damage)
@@ -61,16 +61,5 @@ public class Health : MonoBehaviour
         
         //play hit sound
         SoundManager.Instance.PlayAudio(playerHitSound);
-        
-        if (currentHealth > 0)
-        {
-            //alive
-        }
-        else
-        {
-            gameObject.SetActive(false);
-            //death screen
-            _dead = true;
-        }
     }
 }

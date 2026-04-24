@@ -18,6 +18,10 @@ public class FallingPlatform : MonoBehaviour
             //wait a few seconds before dropping platform
             StartCoroutine(Fall());
         }
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private IEnumerator Fall()
