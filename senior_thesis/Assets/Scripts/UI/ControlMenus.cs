@@ -6,17 +6,16 @@ public class ControlMenus : MonoBehaviour
 {
     [SerializeField] private GameObject deathMenu;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject healthBar;
-    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject healthBar; 
+    private GameObject _player;
     private Health _playerHealth;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        _player = GameObject.FindGameObjectWithTag("Player");
         //getting player health
-        _playerHealth = player.GetComponent<Health>();
+        _playerHealth = _player.GetComponent<Health>();
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         //activating game over screen when player dies

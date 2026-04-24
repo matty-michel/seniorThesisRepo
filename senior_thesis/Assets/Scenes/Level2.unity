@@ -805,7 +805,6 @@ MonoBehaviour:
   deathMenu: {fileID: 1213959068}
   pauseMenu: {fileID: 553714775}
   healthBar: {fileID: 580559376}
-  player: {fileID: 348691183}
 --- !u!1001 &176076198
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4106,7 +4105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &553714776
 RectTransform:
   m_ObjectHideFlags: 0
