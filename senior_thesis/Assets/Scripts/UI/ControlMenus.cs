@@ -1,14 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using TMPro;
 
 public class ControlMenus : MonoBehaviour
 {
     [SerializeField] private GameObject deathMenu;
     [SerializeField] private GameObject pauseMenu;
-    [SerializeField] private GameObject healthBar; 
+    [SerializeField] private GameObject healthBar;
+    [SerializeField] private TextMeshProUGUI collectedStars;
+    
     private GameObject _player;
     private Health _playerHealth;
+    private int _starCount;
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -71,5 +75,11 @@ public class ControlMenus : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //deactivating game over screen
         deathMenu.SetActive(false);
+    }
+
+    public void CollectStars()
+    {
+        _starCount++;
+        collectedStars.text = _starCount.ToString();
     }
 }
