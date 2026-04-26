@@ -7,12 +7,12 @@ public class ControlMenus : MonoBehaviour
 {
     [SerializeField] private GameObject deathMenu;
     [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject healthBar;
-    [SerializeField] private TextMeshProUGUI collectedStars;
     
     private GameObject _player;
     private Health _playerHealth;
-    private int _starCount;
+
     void Start()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
@@ -34,7 +34,7 @@ public class ControlMenus : MonoBehaviour
         }
     }
     
-    private void GameOver()
+    public void GameOver()
     {
         //activating game over screen
         deathMenu.SetActive(true);
@@ -68,6 +68,13 @@ public class ControlMenus : MonoBehaviour
         healthBar.SetActive(true);
     }
 
+    public void YouWin()
+    {
+        //opening win menu
+        winMenu.SetActive(true);
+        //play sound
+    }
+
     private IEnumerator DelayRespawn()
     {
         yield return new WaitForSeconds(0.5f);
@@ -75,11 +82,5 @@ public class ControlMenus : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         //deactivating game over screen
         deathMenu.SetActive(false);
-    }
-
-    public void CollectStars()
-    {
-        _starCount++;
-        collectedStars.text = _starCount.ToString();
     }
 }

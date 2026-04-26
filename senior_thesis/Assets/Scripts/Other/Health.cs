@@ -23,8 +23,11 @@ public class Health : MonoBehaviour
        if (gameObject.CompareTag("Player"))
        {
            _healthBarObj = GameObject.Find("Health Bar");
-           _healthBar = _healthBarObj.GetComponent<HealthBar>();
-           _healthBar.SetMaxHealth(maxHealth);
+           if (_healthBarObj != null)
+           {
+               _healthBar = _healthBarObj.GetComponent<HealthBar>();
+               _healthBar.SetMaxHealth(maxHealth);
+           }
        }
     }
 
