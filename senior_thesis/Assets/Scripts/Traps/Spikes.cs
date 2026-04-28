@@ -23,7 +23,7 @@ public class Spikes : MonoBehaviour
         //getting health & control scripts
         _playerHealth = _player.GetComponent<Health>();
         _playerController = _player.GetComponent<PlayerController>();
-        _playerCollider = _player.GetComponent<Collider2D>();
+        _playerCollider = _player.GetComponent<CapsuleCollider2D>();
         //setting original speed & jump force to reset in collision exit
         _originalSpeed = _playerController.speed;
         _originalJumpForce = _playerController.jumpForce;

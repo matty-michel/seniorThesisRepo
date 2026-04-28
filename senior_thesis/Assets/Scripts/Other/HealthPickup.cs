@@ -14,7 +14,7 @@ public class HealthPickup : MonoBehaviour
     void Awake()
     {
         _playerHealth = GameObject.Find("Player").GetComponent<Health>();
-        _playerCollider = GameObject.Find("Player").GetComponent<Collider2D>();
+        _playerCollider = GameObject.Find("Player").GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
         _healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
     }

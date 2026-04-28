@@ -806,8 +806,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMenu: {fileID: 1213959068}
   pauseMenu: {fileID: 553714775}
+  winMenu: {fileID: 0}
   healthBar: {fileID: 580559376}
-  player: {fileID: 348691183}
 --- !u!1 &191649230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1555,7 @@ PrefabInstance:
     - target: {fileID: 802113709950264334, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 6373490391669023884, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 153.45
@@ -3014,11 +3014,6 @@ Tilemap:
 --- !u!1 &348691183 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5264648109184553723, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
-  m_PrefabInstance: {fileID: 168951387400609847}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &348691188 stripped
-BoxCollider2D:
-  m_CorrespondingSourceObject: {fileID: 493275047554753176, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
   m_PrefabInstance: {fileID: 168951387400609847}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &357395039
@@ -4760,6 +4755,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 6380188915821498567, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
+      objectReference: {fileID: 0}
     - target: {fileID: 6797474850262171782, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
       propertyPath: healthBarObj
       value: 
@@ -4838,7 +4837,7 @@ PrefabInstance:
     - target: {fileID: 4042854506933422200, guid: 90bae389a7c3e4b9f80a5310177014f9, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 4048203158971046062, guid: 90bae389a7c3e4b9f80a5310177014f9, type: 3}
       propertyPath: m_Name
       value: JumpPowerup (2)
@@ -4951,7 +4950,7 @@ PrefabInstance:
     - target: {fileID: 802113709950264334, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 6373490391669023884, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: -19.91729
@@ -5612,7 +5611,7 @@ PrefabInstance:
     - target: {fileID: 802113709950264334, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 6373490391669023884, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 48.08271
@@ -9003,7 +9002,7 @@ PrefabInstance:
     - target: {fileID: 802113709950264334, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 6373490391669023884, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 14.08271
@@ -11075,16 +11074,6 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 4
       m_TileSpriteIndex: 4
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      dummyAlignment: 0
-      m_AllTileFlags: 1073741825
-  - first: {x: 54, y: -1, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 6
-      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15434,7 +15423,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 990b46d35dad20345aa74068028763f4, type: 2}
   - m_RefCount: 57
     m_Data: {fileID: 11400000, guid: cfd7f7e4c493f6c45b7a71202ba913e8, type: 2}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 7a893bf30e8b23047a78c094f422fec4, type: 2}
   - m_RefCount: 34
     m_Data: {fileID: 11400000, guid: 7b090590beb233a43ac9cb2b746aad07, type: 2}
@@ -15461,7 +15450,7 @@ Tilemap:
     m_Data: {fileID: 1149072864, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   - m_RefCount: 57
     m_Data: {fileID: -1493193376, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
-  - m_RefCount: 3
+  - m_RefCount: 2
     m_Data: {fileID: -1122151221, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   - m_RefCount: 34
     m_Data: {fileID: 1121040729, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
@@ -15476,7 +15465,7 @@ Tilemap:
   - m_RefCount: 55
     m_Data: {fileID: -1727392612, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 476
+  - m_RefCount: 475
     m_Data:
       e00: 1
       e01: 0
@@ -15495,7 +15484,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 476
+  - m_RefCount: 475
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -15985,6 +15974,10 @@ PrefabInstance:
     - target: {fileID: 5326319087012772120, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
       propertyPath: m_TagString
       value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6380188915821498567, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
       objectReference: {fileID: 0}
     - target: {fileID: 6797474850262171782, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
       propertyPath: healthBarObj
@@ -18533,7 +18526,7 @@ PrefabInstance:
     - target: {fileID: 4042854506933422200, guid: 90bae389a7c3e4b9f80a5310177014f9, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 4048203158971046062, guid: 90bae389a7c3e4b9f80a5310177014f9, type: 3}
       propertyPath: m_Name
       value: JumpPowerup (1)
@@ -26107,6 +26100,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 3
       m_TileSpriteIndex: 3
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 54, y: -1, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 12
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -39818,8 +39821,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: ea6723564d86a334fad6550a30c17623, type: 2}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 53dc4e8222ef3a54b9ee4b337062fa57, type: 2}
   - m_RefCount: 12
     m_Data: {fileID: 11400000, guid: 108e6165f7a91b44e8701711b2d1a23c, type: 2}
   - m_RefCount: 2
@@ -39873,8 +39876,8 @@ Tilemap:
     m_Data: {fileID: -839192656, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   - m_RefCount: 35
     m_Data: {fileID: -1724452651, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 330263017, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   - m_RefCount: 12
     m_Data: {fileID: 1809391310, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   - m_RefCount: 9
@@ -39908,7 +39911,7 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: -1631878210, guid: 5fe5454ec8605de43809133b020d1b69, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 2085
+  - m_RefCount: 2086
     m_Data:
       e00: 1
       e01: 0
@@ -39927,7 +39930,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 2085
+  - m_RefCount: 2086
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
@@ -42165,7 +42168,7 @@ PrefabInstance:
     - target: {fileID: 802113709950264334, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: playerCollider
       value: 
-      objectReference: {fileID: 348691188}
+      objectReference: {fileID: 0}
     - target: {fileID: 6373490391669023884, guid: 5a41985b55eaa4b4fa878c07f174d3fe, type: 3}
       propertyPath: m_LocalPosition.x
       value: 60.45
@@ -43264,17 +43267,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 493275047554753176, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1879409784367210998, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: healthBarObj
       value: 
       objectReference: {fileID: 580559376}
     - target: {fileID: 2060447885125252819, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.48
+      value: 51.52
       objectReference: {fileID: 0}
     - target: {fileID: 2060447885125252819, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.28
+      value: -5.7200003
       objectReference: {fileID: 0}
     - target: {fileID: 2060447885125252819, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -43311,10 +43318,6 @@ PrefabInstance:
     - target: {fileID: 4385559436768440247, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1924138
-      objectReference: {fileID: 0}
-    - target: {fileID: 5264196953991626982, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
-      propertyPath: attackCooldown
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5264648109184553723, guid: 652c97e5f8477483cadc862593e6da6d, type: 3}
       propertyPath: m_Name
@@ -43455,6 +43458,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229224242}
     m_Modifications:
+    - target: {fileID: 3453857162307220154, guid: 928ed05db75dd4a62aa8e6ea62463092, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4496760524087882598, guid: 928ed05db75dd4a62aa8e6ea62463092, type: 3}
       propertyPath: m_Name
       value: Flying_Enemy
@@ -43638,6 +43645,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1229224242}
     m_Modifications:
+    - target: {fileID: 196425646683980291, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1289000742545983515, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.10729
@@ -43682,14 +43693,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Melee_Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 6797474850262171782, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
-      propertyPath: healthBarObj
-      value: 
-      objectReference: {fileID: 580559376}
-    - target: {fileID: 8672320402388304276, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 348691183}
+    - target: {fileID: 6380188915821498567, guid: e5b4b6d73d3554abd9ab1869583d3821, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.32
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -43742,10 +43749,6 @@ PrefabInstance:
     - target: {fileID: 5381940750921106663, guid: 85bbfa7e6d2104dc79e591bf439719bd, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6040238683539060435, guid: 85bbfa7e6d2104dc79e591bf439719bd, type: 3}
-      propertyPath: speed
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7643207524008071835, guid: 85bbfa7e6d2104dc79e591bf439719bd, type: 3}
       propertyPath: m_Name
