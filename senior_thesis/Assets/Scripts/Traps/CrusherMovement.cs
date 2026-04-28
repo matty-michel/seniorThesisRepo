@@ -6,16 +6,12 @@ public class CrusherMovement : MonoBehaviour
     [SerializeField] GameObject lowerEdge;
     [SerializeField] private float speed;
     
-    private PlayerController _playerController;
-    private Health _playerHealth;
     private bool _movingDown;
     private Animator _animator;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _playerController = GameObject.Find("Player").GetComponent<PlayerController>();
-        _playerHealth = GameObject.Find("Player").GetComponent<Health>();
     }
     void Update()
     {
@@ -55,20 +51,5 @@ public class CrusherMovement : MonoBehaviour
         
         //play hit animation
         _animator.SetTrigger("Hit");
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("collided with " + collision.gameObject.name);
-        if (collision.gameObject.CompareTag("Player") && _playerController.isOnGround)
-        {
-            //killing player
-            _playerHealth.currentHealth = 0; 
-        }
-        else if (collision.gameObject.CompareTag("Enemy"))
-        {
-            //killing enemy
-            collision.gameObject.GetComponent<Health>().currentHealth = 0;
-        }
     }
 }
