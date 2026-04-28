@@ -47,6 +47,9 @@ public class Health : MonoBehaviour
         //limits health to a min of 0 and a max of _maxHealth
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, maxHealth);
         
+        //playing hit animation
+        _animator.SetTrigger("Hit");
+        
         //play hit sound
         SoundManager.Instance.PlayAudio(enemyHitSound);
     }

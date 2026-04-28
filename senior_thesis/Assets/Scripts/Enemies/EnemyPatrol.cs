@@ -61,12 +61,12 @@ public class EnemyPatrol : MonoBehaviour
         //flipping enemy sprite right
         if (direction > 0.01f)
         {
-            _spriteRenderer.flipX = true;
+            _spriteRenderer.flipX = false;
         }
         //flipping enemy sprite left
         else if (direction < -0.01f)
         {
-            _spriteRenderer.flipX = false;
+            _spriteRenderer.flipX = true;
         }
         
         //enemy moves in this direction
