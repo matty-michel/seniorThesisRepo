@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip jumpSound;
     [SerializeField] private AudioClip doubleJumpSound;
     [SerializeField] private AudioClip gotPowerupSound;
-    //[SerializeField] private AudioClip lostPowerupSound;
+    [SerializeField] private AudioClip lostPowerupSound;
     
     private Rigidbody2D _playerRigidBody;
     private Animator _playerAnimator;
@@ -133,5 +133,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Lost powerup");
         
         //playing lost powerup sound
+        SoundManager.Instance.PlayAudio(lostPowerupSound);
     }
 }
