@@ -31,8 +31,10 @@ public class Control : MonoBehaviour
 
     private IEnumerator Delay(string scene)
     {
-        //loading a scene after a certain amount of time has passed
-        yield return new WaitForSeconds(0.5f);
         SceneManager.LoadScene(scene);
+        //unfreezing scene
+        Time.timeScale = 1;
+        //loading a scene after a certain amount of time has passed
+        yield return new WaitForSeconds(1.0f);
     }
 }
