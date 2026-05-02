@@ -14,6 +14,7 @@ TagManager:
   - Spikes
   - Projectile
   - Star
+  - WidenCamera
   layers:
   - Default
   - TransparentFX
