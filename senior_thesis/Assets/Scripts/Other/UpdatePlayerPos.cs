@@ -6,7 +6,9 @@ public class UpdatePlayerPos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            transform.parent = other.gameObject.transform;
+            Debug.Log("Collided with MovingPlatform");
+            transform.SetParent(other.gameObject.transform);
+            Debug.Log(transform.parent);
         }
     }
 
@@ -14,7 +16,7 @@ public class UpdatePlayerPos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            transform.parent = null;
+            transform.SetParent(null);
         }
     }
 }

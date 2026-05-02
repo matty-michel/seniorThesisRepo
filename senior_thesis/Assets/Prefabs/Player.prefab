@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2341814474430346522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.19241387, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -221,6 +221,7 @@ MonoBehaviour:
   jumpSound: {fileID: 8300000, guid: 76f8c00779b924bd1afa3e7a8ca2fa3e, type: 3}
   doubleJumpSound: {fileID: 8300000, guid: fd756b7f576b14641a6a60c8ec03d86e, type: 3}
   gotPowerupSound: {fileID: 8300000, guid: 5671d5483395f4d3abb7d9d0380a5e88, type: 3}
+  lostPowerupSound: {fileID: 8300000, guid: e58d8bd078f188a4ba314e933b98528b, type: 3}
   isOnGround: 1
   speed: 7
   jumpForce: 7
@@ -264,7 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  attackRange: 2
+  attackRange: 2.4
   attackTransform: {fileID: 4385559436768440247}
   attackableLayer:
     serializedVersion: 2

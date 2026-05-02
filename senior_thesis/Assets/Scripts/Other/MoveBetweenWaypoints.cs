@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class MoveBetweenWaypoints : MonoBehaviour
@@ -8,7 +9,6 @@ public class MoveBetweenWaypoints : MonoBehaviour
     [SerializeField] private float speed = 1f;
     
     private bool _movingLeft;
-    
     void Update()
     {
         //move to the left as long as platform pos is >= leftEdge
