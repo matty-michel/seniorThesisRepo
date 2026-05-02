@@ -3,9 +3,12 @@ using UnityEngine;
 public class EnemyChase : MonoBehaviour
 {
     [SerializeField] private Collider2D chaseRange;
-    private GameObject _player;
+    [SerializeField] private GameObject chaseIndicator;
     private EnemyPatrol _enemyPatrol;
+    private Rigidbody2D _enemyRigidbody;
+    private SpriteRenderer _spriteRenderer;
     private bool _playerInRange;
+    private GameObject _player;
     
     void Awake()
     {
@@ -13,16 +16,22 @@ public class EnemyChase : MonoBehaviour
         _player = GameObject.FindGameObjectWithTag("Player");
         //getting enemy patrol script
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
+        //getting rigidbody
+        _enemyRigidbody = GetComponentInParent<Rigidbody2D>();
+        //getting sprite renderer
+        _spriteRenderer = GetComponentInParent<SpriteRenderer>();
     }
     
     void Update()
     {
         if (_playerInRange)
         {
-            //Vector2 moveDirection = (player.transform.position - transform.position).normalized;
             float moveDirection = _player.transform.position.x - transform.position.x;
-            _enemyPatrol.MoveInDirection(moveDirection);
-            //MoveTowardsPlayer();
+            //Vector2 moveDirection = ((_player.transform.position - transform.position) * _enemyPatrol.speed).normalized;
+            MoveTowardsPlayer(moveDirection);
+            //move towards player
+            //float moveDirection = _player.transform.position.x - transform.position.x;
+            //_enemyPatrol.MoveInDirection(moveDirection);
         }
     }
 
@@ -32,7 +41,12 @@ public class EnemyChase : MonoBehaviour
         {
             Debug.Log("Player in range");
             _playerInRange = true;
-            //_enemyPatrol.enabled = false;
+            
+            //disabling enemy patrol
+            _enemyPatrol.enabled = false;
+            
+            //activating chase indicator
+            chaseIndicator.SetActive(true);
         }
     }
 
@@ -42,17 +56,28 @@ public class EnemyChase : MonoBehaviour
         {
             Debug.Log("Player out of range");
             _playerInRange = false;
-            //_enemyPatrol.enabled = true;
+            
+            //enabling enemy patrol
+            _enemyPatrol.enabled = true;
+            
+            //deactivating chase indicator
+            chaseIndicator.SetActive(false);
         }
     }
-        
-    /*void MoveTowardsPlayer()
+
+    void MoveTowardsPlayer(float direction)
     {
-        //getting the force direction by subtracting enemy pos from player pos
-        //normalized keeps the force the same regardless of distance
-        Vector2 moveDirection = (player.transform.position - transform.position).normalized;
-        _enemyRigidbody.AddForce(moveDirection * speed);
-    }*/
+        if (direction < -0.01)
+        {
+            _spriteRenderer.flipX = true;
+        }
+        else if (direction > 0.01)
+        {
+            _spriteRenderer.flipX = false;
+        }
+        
+        _enemyRigidbody.AddForce((transform.position * direction * _enemyPatrol.speed * Time.deltaTime).normalized);
+    }
 
     void OnDrawGizmos()
     {
