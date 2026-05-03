@@ -40,6 +40,8 @@ public class TimedCollection : MonoBehaviour
             _controlMenus.YouWin();
             //disable timer text
             stars.gameObject.SetActive(false);
+            //freeze scene
+            Time.timeScale = 0;
         }
         else if (timeLeft <= 0 && _currentStars < _starCount)
         {
@@ -47,6 +49,8 @@ public class TimedCollection : MonoBehaviour
             _controlMenus.GameOver();
             //disable timer text
             stars.gameObject.SetActive(false);
+            //freeze scene
+            Time.timeScale = 0;
         }
     }
     

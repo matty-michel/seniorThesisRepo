@@ -446,7 +446,6 @@ GameObject:
   - component: {fileID: 609766015}
   - component: {fileID: 609766018}
   - component: {fileID: 609766017}
-  - component: {fileID: 609766016}
   m_Layer: 0
   m_Name: Background5 (1)
   m_TagString: Untagged
@@ -463,25 +462,12 @@ Transform:
   m_GameObject: {fileID: 609766014}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.25, y: 1.66388, z: 0}
-  m_LocalScale: {x: 1.2938, y: 1.1854, z: 1}
+  m_LocalPosition: {x: 15.968465, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 637755094}
+  m_Father: {fileID: 854189782}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &609766016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 609766014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8dd0cab30ccf54a1fb05723e000a186c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
 --- !u!61 &609766017
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -615,7 +601,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 854189782}
-  - {fileID: 609766015}
   - {fileID: 576474064}
   - {fileID: 1904136694}
   - {fileID: 488772548}
@@ -988,10 +973,11 @@ Transform:
   m_GameObject: {fileID: 854189780}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.41, y: 1.66388, z: 0}
+  m_LocalPosition: {x: -2.4, y: 1.5, z: 0}
   m_LocalScale: {x: 1.2938, y: 1.1854, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 609766015}
   m_Father: {fileID: 637755094}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &854189783
@@ -1001,7 +987,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 854189780}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8dd0cab30ccf54a1fb05723e000a186c, type: 3}
   m_Name: 

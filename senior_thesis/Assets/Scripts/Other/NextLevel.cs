@@ -2,16 +2,17 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-    [SerializeField] private GameObject winMenu;
-    
+    private ControlMenus _controlMenus;
+
+    void Start()
+    {
+        _controlMenus = GameObject.Find("Control").GetComponent<ControlMenus>();
+    }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            //freezing scene
-            //Time.timeScale = 0;
-            //activating win menu
-            winMenu.SetActive(true);
+            _controlMenus.YouWin();
         }
     }
 }

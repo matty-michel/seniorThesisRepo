@@ -36,6 +36,9 @@ public class ControlMenus : MonoBehaviour
     
     public void GameOver()
     {
+        //freezing scene
+        Time.timeScale = 0;
+        
         //activating game over screen
         deathMenu.SetActive(true);
         //play sound
@@ -43,6 +46,7 @@ public class ControlMenus : MonoBehaviour
 
     public void Respawn()
     {
+        _playerHealth._dead = false;
         StartCoroutine(DelayRespawn());
     }
     
@@ -70,6 +74,9 @@ public class ControlMenus : MonoBehaviour
 
     public void YouWin()
     {
+        //freezing scene
+        Time.timeScale = 0;
+        
         //opening win menu
         winMenu.SetActive(true);
         //play sound
@@ -77,10 +84,14 @@ public class ControlMenus : MonoBehaviour
 
     private IEnumerator DelayRespawn()
     {
-        yield return new WaitForSeconds(0.5f);
         //reloading current level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        //unfreezing scene
+        Time.timeScale = 1;
         //deactivating game over screen
         deathMenu.SetActive(false);
+        
+        yield return new WaitForSeconds(1.0f);
     }
 }

@@ -6,15 +6,17 @@ public class StarCollectible : MonoBehaviour
     
     private Animator _animator;
     private TimedCollection _timedCollection;
+    private CapsuleCollider2D _playerCollider;
 
     void Start()
     {
         _animator = GetComponent<Animator>();
         _timedCollection = GameObject.Find("Control").GetComponent<TimedCollection>();
+        _playerCollider = GameObject.Find("Player").GetComponent<CapsuleCollider2D>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other == _playerCollider)
         {
             //add 1 to collected items
             _timedCollection.CollectStars();
