@@ -12,7 +12,7 @@ public class OutOfBounds : MonoBehaviour
         //killing player when they fall out of bounds
         if (other.CompareTag("Player"))
         {
-            _playerHealth._dead = true;
+            _playerHealth.currentHealth = 0;
         }
         //destroying enemies that fall out of bounds
         else if (other.CompareTag("Enemy"))

@@ -12,12 +12,15 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public bool _dead;
     private HealthBar _healthBar;
+    private Control _control;
 
     void Start()
     {
         //setting current health to max
        currentHealth = maxHealth;
        _animator = GetComponent<Animator>();
+       
+       _control = GameObject.Find("Control").GetComponent<Control>();
        
        //getting reference to health bar for player object
        if (gameObject.CompareTag("Player"))
@@ -38,6 +41,11 @@ public class Health : MonoBehaviour
             _dead = true;
             _animator.SetTrigger("Dead");
             Destroy(gameObject, 0.5f);
+            
+            if (gameObject.CompareTag("Player"))
+            {
+                _control.GameOver();
+            }
         }
     }
 

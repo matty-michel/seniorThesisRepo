@@ -5,14 +5,37 @@ using System.Collections;
 
 public class Control : MonoBehaviour
 {
-    public void LoadScene(string scene)
+    [SerializeField] private GameObject deathMenu;
+    [SerializeField] private GameObject pauseMenu;
+    [SerializeField] private GameObject winMenu;
+    [SerializeField] private GameObject healthBar;
+    
+    private bool _freezeScene;
+
+    void Update()
     {
-        //loading a scene immediately
-        SceneManager.LoadScene(scene);
+        //activating pause menu when player presses 'P'
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+        
+        //checking if scene is frozen
+        if (_freezeScene)
+        {
+            Time.timeScale = 0;
+        }
+        else if (!_freezeScene)
+        {
+            Time.timeScale = 1;
+        }
     }
     
     public void NextLevel()
     {
+        //unfreezing scene
+        _freezeScene = false;
+        
         //loading next level
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
@@ -22,19 +45,81 @@ public class Control : MonoBehaviour
     {
         StartCoroutine(Delay(scene));
     }
+    
+    private IEnumerator Delay(string scene)
+    {
+        //unfreezing scene
+        _freezeScene = false;
+        
+        SceneManager.LoadScene(scene);
+        //loading a scene after a certain amount of time has passed
+        yield return new WaitForSeconds(1.0f);
+    }
+    
+    public void Respawn()
+    {
+        StartCoroutine(DelayRespawn());
+    }
+    
+    private IEnumerator DelayRespawn()
+    {
+        //unfreezing scene
+        _freezeScene = false;
+        
+        //reloading current level
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        
+        //deactivating game over screen
+        deathMenu.SetActive(false);
+        
+        yield return new WaitForSeconds(1.0f);
+    }
+    
+    private void PauseGame()
+    {
+        //freezing scene
+        _freezeScene = true;
+        
+        //opening pause menu
+        pauseMenu.SetActive(true);
+        //hiding health bar
+        healthBar.SetActive(false);
+    }
 
+    public void ResumeGame()
+    {
+        //unfreezing scene
+        _freezeScene = false;
+        
+        //closing pause menu
+        pauseMenu.SetActive(false);
+        //showing health bar
+        healthBar.SetActive(true);
+    }
+
+    public void YouWin()
+    {
+        //freezing scene
+        _freezeScene = true;
+        
+        //opening win menu
+        winMenu.SetActive(true);
+        //play sound
+    }
+        
+    public void GameOver()
+    {
+        //freezing scene
+        _freezeScene = true;
+        
+        //activating game over screen
+        deathMenu.SetActive(true);
+        //play sound
+    }
+    
     public void Quit()
     {
         //quitting game
         Application.Quit();
-    }
-
-    private IEnumerator Delay(string scene)
-    {
-        SceneManager.LoadScene(scene);
-        //unfreezing scene
-        Time.timeScale = 1;
-        //loading a scene after a certain amount of time has passed
-        yield return new WaitForSeconds(1.0f);
     }
 }

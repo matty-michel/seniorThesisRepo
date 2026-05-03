@@ -327,7 +327,6 @@ GameObject:
   m_Component:
   - component: {fileID: 175252944}
   - component: {fileID: 175252943}
-  - component: {fileID: 175252945}
   - component: {fileID: 175252946}
   m_Layer: 0
   m_Name: Control
@@ -348,6 +347,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0006bc388fe824b9e879e644a1aa858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1213959068}
+  pauseMenu: {fileID: 553714775}
+  winMenu: {fileID: 1149972724}
+  healthBar: {fileID: 580559376}
 --- !u!4 &175252944
 Transform:
   m_ObjectHideFlags: 0
@@ -363,22 +366,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &175252945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175252942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99962c515cdb44ff6819a9e72e35cead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathMenu: {fileID: 1213959068}
-  pauseMenu: {fileID: 553714775}
-  winMenu: {fileID: 1149972724}
-  healthBar: {fileID: 580559376}
 --- !u!114 &175252946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +382,7 @@ MonoBehaviour:
   collectedStars: {fileID: 1910689722}
   totalStars: {fileID: 1907581656}
   timer: {fileID: 697079810}
-  timeLeft: 5
+  timeLeft: 60
 --- !u!1 &200431940
 GameObject:
   m_ObjectHideFlags: 0
@@ -784,8 +771,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 175252945}
-        m_TargetAssemblyTypeName: ControlMenus, Assembly-CSharp
+      - m_Target: {fileID: 175252943}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -2635,8 +2622,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 175252943}
         m_TargetAssemblyTypeName: Control, Assembly-CSharp
-        m_MethodName: DelayedLoadScene
-        m_Mode: 5
+        m_MethodName: Respawn
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3454,8 +3441,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175252945}
-        m_TargetAssemblyTypeName: ControlMenus, Assembly-CSharp
+      - m_Target: {fileID: 175252943}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:

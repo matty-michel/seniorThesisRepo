@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class NextLevel : MonoBehaviour
 {
-    private ControlMenus _controlMenus;
+    private Control _control;
 
     void Start()
     {
-        _controlMenus = GameObject.Find("Control").GetComponent<ControlMenus>();
+        _control = GameObject.Find("Control").GetComponent<Control>();
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            _controlMenus.YouWin();
+            _control.YouWin();
         }
     }
 }

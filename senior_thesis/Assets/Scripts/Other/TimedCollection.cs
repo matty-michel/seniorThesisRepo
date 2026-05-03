@@ -12,7 +12,7 @@ public class TimedCollection : MonoBehaviour
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private float timeLeft;
     
-    private ControlMenus _controlMenus;
+    private Control _control;
     private int _starCount;
     private int _currentStars;
 
@@ -23,8 +23,8 @@ public class TimedCollection : MonoBehaviour
         totalStars.text = _starCount.ToString();
         
         _currentStars = 0;
-
-        _controlMenus = gameObject.GetComponentInParent<ControlMenus>();
+            
+        _control = gameObject.GetComponentInParent<Control>();
     }
 
     void Update()
@@ -37,20 +37,18 @@ public class TimedCollection : MonoBehaviour
         if (_currentStars == _starCount)
         {
             //player won game
-            _controlMenus.YouWin();
+            _control.YouWin();
+            
             //disable timer text
             stars.gameObject.SetActive(false);
-            //freeze scene
-            Time.timeScale = 0;
         }
         else if (timeLeft <= 0 && _currentStars < _starCount)
         {
             //player lost game
-            _controlMenus.GameOver();
+            _control.GameOver();
+            
             //disable timer text
             stars.gameObject.SetActive(false);
-            //freeze scene
-            Time.timeScale = 0;
         }
     }
     

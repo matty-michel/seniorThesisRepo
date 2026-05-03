@@ -828,7 +828,6 @@ GameObject:
   m_Component:
   - component: {fileID: 175252944}
   - component: {fileID: 175252943}
-  - component: {fileID: 175252945}
   m_Layer: 0
   m_Name: Control
   m_TagString: Untagged
@@ -848,6 +847,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0006bc388fe824b9e879e644a1aa858a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathMenu: {fileID: 1213959068}
+  pauseMenu: {fileID: 553714775}
+  winMenu: {fileID: 1149972724}
+  healthBar: {fileID: 580559376}
 --- !u!4 &175252944
 Transform:
   m_ObjectHideFlags: 0
@@ -863,22 +866,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &175252945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175252942}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99962c515cdb44ff6819a9e72e35cead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathMenu: {fileID: 1213959068}
-  pauseMenu: {fileID: 553714775}
-  winMenu: {fileID: 0}
-  healthBar: {fileID: 580559376}
 --- !u!1 &191649230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,8 +1283,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 175252945}
-        m_TargetAssemblyTypeName: ControlMenus, Assembly-CSharp
+      - m_Target: {fileID: 175252943}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -4530,8 +4517,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175252945}
-        m_TargetAssemblyTypeName: ControlMenus, Assembly-CSharp
+      - m_Target: {fileID: 175252943}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
         m_MethodName: Respawn
         m_Mode: 1
         m_Arguments:
@@ -5558,8 +5545,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 175252945}
-        m_TargetAssemblyTypeName: ControlMenus, Assembly-CSharp
+      - m_Target: {fileID: 175252943}
+        m_TargetAssemblyTypeName: Control, Assembly-CSharp
         m_MethodName: ResumeGame
         m_Mode: 1
         m_Arguments:
@@ -18516,7 +18503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a458f9c9709be4dce98c047c4fcb31db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winMenu: {fileID: 1149972724}
 --- !u!61 &1501085033
 BoxCollider2D:
   m_ObjectHideFlags: 0
