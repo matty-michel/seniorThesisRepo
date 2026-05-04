@@ -10,6 +10,9 @@ public class Control : MonoBehaviour
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject healthBar;
     
+    [SerializeField] private AudioClip gameOverSound;
+    [SerializeField] private AudioClip youWinSound;
+    
     private bool _freezeScene;
 
     void Update()
@@ -104,7 +107,9 @@ public class Control : MonoBehaviour
         
         //opening win menu
         winMenu.SetActive(true);
+        
         //play sound
+        //SoundManager.Instance.PlayAudio(youWinSound);
     }
         
     public void GameOver()
@@ -114,7 +119,9 @@ public class Control : MonoBehaviour
         
         //activating game over screen
         deathMenu.SetActive(true);
+        
         //play sound
+        //SoundManager.Instance.PlayAudio(gameOverSound);
     }
     
     public void Quit()
