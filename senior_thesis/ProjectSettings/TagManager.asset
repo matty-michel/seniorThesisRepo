@@ -15,6 +15,7 @@ TagManager:
   - Projectile
   - Star
   - WidenCamera
+  - Walls
   layers:
   - Default
   - TransparentFX

@@ -59,7 +59,7 @@ public class DetectCollisions : MonoBehaviour
             }
         }
         //destroying projectile if it hits the ground
-        else if (other.CompareTag("Ground") || other.CompareTag("MovingPlatform"))
+        else if (other.CompareTag("Ground") || other.CompareTag("MovingPlatform") || other.CompareTag("Walls"))
         {
             //playing fireball explosion animation
             _animator.SetTrigger("Hit");
