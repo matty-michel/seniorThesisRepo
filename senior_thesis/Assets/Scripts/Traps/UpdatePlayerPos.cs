@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UpdatePlayerPos : MonoBehaviour
@@ -6,9 +7,7 @@ public class UpdatePlayerPos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            Debug.Log("Collided with MovingPlatform");
             transform.SetParent(other.gameObject.transform);
-            Debug.Log(transform.parent);
         }
     }
 
