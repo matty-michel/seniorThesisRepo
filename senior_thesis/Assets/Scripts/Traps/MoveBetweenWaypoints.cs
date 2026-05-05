@@ -9,13 +9,8 @@ public class MoveBetweenWaypoints : MonoBehaviour
     [SerializeField] private float speed = 1f;
     
     private bool _movingLeft;
-    private Rigidbody2D _rigidbody;
-
-    void Start()
-    { 
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
-    void Update()
+    
+    void FixedUpdate()
     {
         //move to the left as long as platform pos is >= leftEdge
         if (_movingLeft)
@@ -52,7 +47,6 @@ public class MoveBetweenWaypoints : MonoBehaviour
     private void MoveInDirection(float direction)
     {
         //platform moves in this direction
-        //_rigidbody.linearVelocity = new Vector2(direction * speed, _rigidbody.linearVelocity.y);
         transform.position = new Vector3(transform.position.x + Time.deltaTime * direction * speed, transform.position.y, transform.position.z);
     }
 }
