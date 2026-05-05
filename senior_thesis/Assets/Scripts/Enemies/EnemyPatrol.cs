@@ -7,13 +7,7 @@ public class EnemyPatrol : MonoBehaviour
     
     [SerializeField] public float speed = 1f;
     
-    private SpriteRenderer _spriteRenderer;
     private bool _movingLeft;
-
-    void Awake()
-    {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
-    }
     
     // Update is called once per frame
     void Update()
@@ -52,15 +46,15 @@ public class EnemyPatrol : MonoBehaviour
     
     public void MoveInDirection(float direction)
     {
-        //flipping enemy sprite right
+        //flipping enemy right
         if (direction > 0.01f)
         {
-            _spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        //flipping enemy sprite left
+        //flipping enemy left
         else if (direction < -0.01f)
         {
-            _spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         
         //enemy moves in this direction

@@ -6,7 +6,6 @@ public class EnemyChase : MonoBehaviour
     [SerializeField] private GameObject chaseIndicator;
     private EnemyPatrol _enemyPatrol;
     private Rigidbody2D _enemyRigidbody;
-    private SpriteRenderer _spriteRenderer;
     private bool _playerInRange;
     private GameObject _player;
     
@@ -18,8 +17,6 @@ public class EnemyChase : MonoBehaviour
         _enemyPatrol = GetComponentInParent<EnemyPatrol>();
         //getting rigidbody
         _enemyRigidbody = GetComponentInParent<Rigidbody2D>();
-        //getting sprite renderer
-        _spriteRenderer = GetComponentInParent<SpriteRenderer>();
     }
     
     void Update()
@@ -67,13 +64,15 @@ public class EnemyChase : MonoBehaviour
 
     void MoveTowardsPlayer(float direction)
     {
+        //flipping enemy left
         if (direction < -0.01)
         {
-            _spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
+        //flipping enemy right
         else if (direction > 0.01)
         {
-            _spriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
         
         _enemyRigidbody.AddForce((transform.position * direction * _enemyPatrol.speed * Time.deltaTime).normalized);

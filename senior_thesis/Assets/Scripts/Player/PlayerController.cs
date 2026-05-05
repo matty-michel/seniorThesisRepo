@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
     
     private Rigidbody2D _playerRigidBody;
     private Animator _playerAnimator;
-    private SpriteRenderer _playerSpriteRenderer;
     private float _horizontalInput;
     
     public bool isOnGround = true;
@@ -25,7 +24,6 @@ public class PlayerController : MonoBehaviour
     {
         _playerRigidBody = GetComponent<Rigidbody2D>();
         _playerAnimator = GetComponent<Animator>();
-        _playerSpriteRenderer = GetComponent<SpriteRenderer>();
     }
     
     void Update()
@@ -67,15 +65,15 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //flipping player sprite right
+        //flipping player right
         if (_horizontalInput > 0.01f)
         {
-            _playerSpriteRenderer.flipX = false;
+            transform.localScale = new Vector3(1, 1, 1);
         }
-        //flipping player sprite left
+        //flipping player left
         else if (_horizontalInput < -0.01f)
         {
-            _playerSpriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         
         //character moves back and forth
