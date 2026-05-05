@@ -3,15 +3,14 @@ using UnityEngine;
 
 public class WidenCamera : MonoBehaviour
 {
-    [SerializeField] private Camera widerCamera;
-    private Camera _mainCamera;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private Camera bigCamera;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         //disabling wider camera at start
-        widerCamera.enabled = false;
+        bigCamera.enabled = false;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -19,8 +18,8 @@ public class WidenCamera : MonoBehaviour
         //enabling wider camera when player triggers collider
         if (other.CompareTag("Player"))
         {
-            widerCamera.enabled = true;
-            _mainCamera.enabled = false;
+            bigCamera.enabled = true;
+            mainCamera.enabled = false;
         }
     }
 
@@ -29,8 +28,8 @@ public class WidenCamera : MonoBehaviour
         //disabling wider camera when player leaves the collider
         if (other.CompareTag("Player"))
         {
-            _mainCamera.enabled = true;
-            widerCamera.enabled = false;
+            mainCamera.enabled = true;
+            bigCamera.enabled = false;
         }
     }
 }

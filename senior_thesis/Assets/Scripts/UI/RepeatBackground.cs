@@ -21,7 +21,7 @@ public class RepeatBackground : MonoBehaviour
     {
         if (followObject != null)
         {
-            //calculating background movement based on camera movement -- speed between 1 & 0, 1 being stationary & 0 moving with cam
+            //calculating background movement based on camera movement -- speed between 1 & 0, 0 being stationary & 1 moving with cam
             _distance = followObject.transform.position.x * speed;
             _movement = followObject.transform.position.x * (1 - speed);
 
