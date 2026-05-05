@@ -30,7 +30,7 @@ public class LevelSelectAnimation : MonoBehaviour
         //moving menus left 
         while (mainMenu.transform.position.x >= leftPoint.transform.position.x)
         {
-            mainMenu.transform.position = new Vector3(mainMenu.transform.position.x + Time.deltaTime * leftPoint.transform.position.x, mainMenu.transform.position.y, mainMenu.transform.position.z);
+            mainMenu.transform.position = new Vector3(mainMenu.transform.position.x + Time.deltaTime * leftPoint.transform.position.x * 2, mainMenu.transform.position.y, mainMenu.transform.position.z);
             
             yield return new WaitForEndOfFrame();
         }
