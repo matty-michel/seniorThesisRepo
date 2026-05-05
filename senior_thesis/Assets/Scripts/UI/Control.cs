@@ -10,6 +10,7 @@ public class Control : MonoBehaviour
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject healthBar;
+    [SerializeField] private GameObject controls;
     
     private bool _freezeScene;
     private float _timesPlayed;
@@ -22,6 +23,12 @@ public class Control : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.P))
             {
                 PauseGame();
+            }
+            
+            //controls only show on screen at the beginning of level before player has moved
+            if(Input.anyKeyDown)
+            {
+                controls.SetActive(false); 
             }
         }
         
