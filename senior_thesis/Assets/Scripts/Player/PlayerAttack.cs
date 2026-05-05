@@ -4,8 +4,11 @@ public class PlayerAttack : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
     [SerializeField] private float attackRange = 2f;
+    [SerializeField] private GameObject attackIndicator;
+    
     [SerializeField] private Transform attackTransform;
     [SerializeField] private LayerMask attackableLayer;
+    
     [SerializeField] private int damage = 1;
     [SerializeField] private float pushbackForce = 5f;
     
@@ -29,6 +32,9 @@ public class PlayerAttack : MonoBehaviour
     {
         //filling _hits array with any enemies within range
         _hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, Vector2.right, 0f, attackableLayer);
+        
+        //playing attack indicator slash animation
+        attackIndicator.GetComponent<Animator>().SetTrigger("Hit");
 
         //for each enemy in attack range
         for (int i = 0; i < _hits.Length; i++)
@@ -38,7 +44,8 @@ public class PlayerAttack : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.EnemyTakeDamage(damage);
-                //resetting cooldown timer
+                
+                //resetting cooldown timer only if enemy is hit
                 _cooldownTimer = 0;
             }
             
