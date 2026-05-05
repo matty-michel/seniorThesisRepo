@@ -10,7 +10,6 @@ public class Health : MonoBehaviour
     private GameObject _healthBarObj;
     private Animator _animator;
     public int currentHealth;
-    public bool _dead;
     private HealthBar _healthBar;
     private Control _control;
 
@@ -38,12 +37,12 @@ public class Health : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            _dead = true;
             _animator.SetTrigger("Dead");
             Destroy(gameObject, 0.5f);
             
             if (gameObject.CompareTag("Player"))
             {
+                GetComponent<PlayerController>().enabled = false;
                 _control.GameOver();
             }
         }
