@@ -27,9 +27,6 @@ public class PlayerAttack : MonoBehaviour
 
     private void Attack()
     {
-        //resetting cooldown timer
-        _cooldownTimer = 0;
-        
         //filling _hits array with any enemies within range
         _hits = Physics2D.CircleCastAll(attackTransform.position, attackRange, Vector2.right, 0f, attackableLayer);
 
@@ -41,6 +38,8 @@ public class PlayerAttack : MonoBehaviour
             if (enemyHealth != null)
             {
                 enemyHealth.EnemyTakeDamage(damage);
+                //resetting cooldown timer
+                _cooldownTimer = 0;
             }
             
             //accessing each enemy's rigidbody
