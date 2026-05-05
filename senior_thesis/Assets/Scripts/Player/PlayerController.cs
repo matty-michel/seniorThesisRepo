@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private AudioClip doubleJumpSound;
     [SerializeField] private AudioClip gotPowerupSound;
     [SerializeField] private AudioClip lostPowerupSound;
+    [SerializeField] private GameObject powerupIndicator;
     
     private Rigidbody2D _playerRigidBody;
     private Animator _playerAnimator;
@@ -79,9 +80,7 @@ public class PlayerController : MonoBehaviour
         
         //character moves back and forth
         _horizontalInput = Input.GetAxis("Horizontal");
-        //must use Vector3 for transform.Translate
         _playerRigidBody.linearVelocity = new Vector2(_horizontalInput * speed, _playerRigidBody.linearVelocity.y);
-        //transform.Translate(Vector3.right * _horizontalInput * Time.deltaTime * speed);
         
         //setting run animation
         _playerAnimator.SetBool("Running", _horizontalInput != 0);
@@ -108,7 +107,11 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Powerup"))
         {
+            Debug.Log(other.gameObject.name);
             hasPowerup = true;
+            
+            //activating powerup indicator
+            powerupIndicator.SetActive(true);
             
             //setting animator parameter
             other.gameObject.GetComponent<Animator>().SetBool("Collected", true);
@@ -124,13 +127,16 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public IEnumerator PowerupCountdownRoutine()
+    private IEnumerator PowerupCountdownRoutine()
     {
         //powerup active for 10 seconds
         yield return new WaitForSeconds(10);
         
         hasPowerup = false;
         Debug.Log("Lost powerup");
+        
+        //deactivating powerup indicator
+        powerupIndicator.SetActive(false);
         
         //playing lost powerup sound
         SoundManager.Instance.PlayAudio(lostPowerupSound);
