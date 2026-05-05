@@ -1,36 +1,48 @@
-using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class Control : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     [SerializeField] private GameObject deathMenu;
     [SerializeField] private GameObject pauseMenu;
     [SerializeField] private GameObject winMenu;
     [SerializeField] private GameObject healthBar;
     
-    [SerializeField] private AudioClip gameOverSound;
-    [SerializeField] private AudioClip youWinSound;
-    
     private bool _freezeScene;
+    private float _timesPlayed;
 
     void Update()
     {
-        //activating pause menu when player presses 'P'
-        if(Input.GetKeyDown(KeyCode.P))
+        //activating pause menu when player presses 'P' -- not allowing pause when in main menu
+        if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            PauseGame();
+            if(Input.GetKeyDown(KeyCode.P))
+            {
+                PauseGame();
+            }
         }
         
         //checking if scene is frozen
         if (_freezeScene)
         {
             Time.timeScale = 0;
+            //disabling player movement in levels when frozen
+            if (player != null)
+            {
+                player.GetComponent<PlayerController>().enabled = false; 
+            }
         }
         else if (!_freezeScene)
         {
             Time.timeScale = 1;
+            //enabling player movement in levels when unfrozen
+            if (player != null)
+            {
+                player.GetComponent<PlayerController>().enabled = true;
+            }
         }
     }
     
@@ -61,21 +73,11 @@ public class Control : MonoBehaviour
     
     public void Respawn()
     {
-        StartCoroutine(DelayRespawn());
-    }
-    
-    private IEnumerator DelayRespawn()
-    {
-        //unfreezing scene
-        _freezeScene = false;
-        
         //reloading current level
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        DelayedLoadScene(SceneManager.GetActiveScene().name);
         
         //deactivating game over screen
         deathMenu.SetActive(false);
-        
-        yield return new WaitForSeconds(1.0f);
     }
     
     private void PauseGame()
@@ -102,26 +104,34 @@ public class Control : MonoBehaviour
 
     public void YouWin()
     {
-        //freezing scene
-        _freezeScene = true;
-        
-        //opening win menu
-        winMenu.SetActive(true);
-        
-        //play sound
-        //SoundManager.Instance.PlayAudio(youWinSound);
+        StartCoroutine(DelayYouWin());
     }
         
     public void GameOver()
     {
+        StartCoroutine(DelayGameOver());
+    }
+
+    IEnumerator DelayGameOver()
+    {
+        yield return new WaitForSeconds(1.0f);
+        
         //freezing scene
         _freezeScene = true;
         
-        //activating game over screen
+        //activating death menu
         deathMenu.SetActive(true);
+    }
+    
+    IEnumerator DelayYouWin()
+    {
+        yield return new WaitForSeconds(2.0f);
         
-        //play sound
-        //SoundManager.Instance.PlayAudio(gameOverSound);
+        //freezing scene
+        _freezeScene = true;
+        
+        //activating win menu
+        winMenu.SetActive(true);
     }
     
     public void Quit()

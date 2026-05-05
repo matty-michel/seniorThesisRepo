@@ -19,21 +19,24 @@ public class RepeatBackground : MonoBehaviour
     
     void FixedUpdate()
     {
-        //calculating background movement based on camera movement -- speed between 1 & 0, 1 being stationary & 0 moving with cam
-        _distance = followObject.transform.position.x * speed;
-        _movement = followObject.transform.position.x * (1 - speed);
-        
-        //adding distance to position
-        transform.position = new Vector3(_startPos + _distance, transform.position.y, transform.position.z);
+        if (followObject != null)
+        {
+            //calculating background movement based on camera movement -- speed between 1 & 0, 1 being stationary & 0 moving with cam
+            _distance = followObject.transform.position.x * speed;
+            _movement = followObject.transform.position.x * (1 - speed);
 
-        //adjust background position if camera reaches the edge
-        if (_movement > _startPos + _length)
-        {
-            _startPos += _length;
-        }
-        else if (_movement < _startPos - _length)
-        {
-            _startPos -= _length;
+            //adding distance to position
+            transform.position = new Vector3(_startPos + _distance, transform.position.y, transform.position.z);
+
+            //adjust background position if camera reaches the edge
+            if (_movement > _startPos + _length)
+            {
+                _startPos += _length;
+            }
+            else if (_movement < _startPos - _length)
+            {
+                _startPos -= _length;
+            }
         }
     }
 }
