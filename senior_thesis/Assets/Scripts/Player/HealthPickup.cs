@@ -5,18 +5,20 @@ public class HealthPickup : MonoBehaviour
 {
     [SerializeField] private int healthAmount;
     [SerializeField] private AudioClip gotPickupSound;
+    [SerializeField] private GameObject player;
+    [SerializeField] private GameObject healthBarObj;
     
     private Collider2D _playerCollider;
-    private Animator _animator;
     private Health _playerHealth;
+    private Animator _animator;
     private HealthBar _healthBar;
 
     void Awake()
     {
-        _playerHealth = GameObject.Find("Player").GetComponent<Health>();
-        _playerCollider = GameObject.Find("Player").GetComponent<CapsuleCollider2D>();
+        _playerHealth = player.GetComponent<Health>();
+        _playerCollider = player.GetComponent<CapsuleCollider2D>();
         _animator = GetComponent<Animator>();
-        _healthBar = GameObject.Find("Health Bar").GetComponent<HealthBar>();
+        _healthBar = healthBarObj.GetComponent<HealthBar>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
