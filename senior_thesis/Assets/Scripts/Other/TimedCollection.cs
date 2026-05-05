@@ -5,12 +5,16 @@ using Unity.VisualScripting;
 
 public class TimedCollection : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     [SerializeField] private GameObject stars;
     [SerializeField] private TextMeshProUGUI collectedStars;
     [SerializeField]private TextMeshProUGUI totalStars;
     
     [SerializeField] private TextMeshProUGUI timer;
     [SerializeField] private float timeLeft;
+
+    [SerializeField] private GameObject confetti;
     
     private Control _control;
     private int _starCount;
@@ -36,6 +40,9 @@ public class TimedCollection : MonoBehaviour
         
         if (_currentStars == _starCount)
         {
+            //activating confetti particles
+            confetti.SetActive(true);
+            
             //player won game
             _control.YouWin();
             
@@ -44,8 +51,11 @@ public class TimedCollection : MonoBehaviour
         }
         else if (timeLeft <= 0 && _currentStars < _starCount)
         {
-            //player lost game
-            _control.GameOver();
+            if (player != null)
+            {
+                //killing player
+                player.GetComponent<Health>().currentHealth = 0;
+            }
             
             //disable timer text
             stars.gameObject.SetActive(false);
