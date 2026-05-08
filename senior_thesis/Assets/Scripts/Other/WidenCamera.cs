@@ -4,11 +4,12 @@ using UnityEngine;
 public class WidenCamera : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
-    [SerializeField] private Camera bigCamera;
+    private Camera bigCamera;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        bigCamera = GetComponent<Camera>();
+        
         //disabling wider camera at start
         bigCamera.enabled = false;
     }
