@@ -2094,6 +2094,12 @@ MonoBehaviour:
   leftPoint: {fileID: 2093002921}
   rightPoint: {fileID: 972659120}
   cam: {fileID: 762512393}
+  play: {fileID: 1963339636}
+  back: {fileID: 1774894327}
+  lvl1: {fileID: 644731235}
+  lvl2: {fileID: 321607000}
+  lvl3: {fileID: 290954618}
+  lvl4: {fileID: 61783923}
 --- !u!1 &1065665494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2199,7 +2205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1101068946
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4210,7 +4216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -864.0049, y: 341.35046}
+  m_AnchoredPosition: {x: -488.00488, y: 280.35046}
   m_SizeDelta: {x: 400, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1963339636

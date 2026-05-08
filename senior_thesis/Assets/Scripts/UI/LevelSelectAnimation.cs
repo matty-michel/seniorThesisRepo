@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class LevelSelectAnimation : MonoBehaviour
 {
@@ -7,6 +8,14 @@ public class LevelSelectAnimation : MonoBehaviour
     [SerializeField] GameObject leftPoint;
     [SerializeField] GameObject rightPoint;
     [SerializeField] GameObject cam;
+
+    [SerializeField] private Button play;
+
+    [SerializeField] private Button back;
+    [SerializeField] private Button lvl1;
+    [SerializeField] private Button lvl2;
+    [SerializeField] private Button lvl3;
+    [SerializeField] private Button lvl4;
 
     private void Update()
     {
@@ -17,11 +26,17 @@ public class LevelSelectAnimation : MonoBehaviour
     //public OnClick events
     public void MoveToLevelSelect()
     {
+        //disabling all buttons while menus move
+        DisableButtons();
+        
         StartCoroutine(MoveLeft());
     }
 
     public void MoveToMainMenu()
     {
+        //disabling all buttons while menus move
+        DisableButtons();
+        
         StartCoroutine(MoveRight());
     }
 
@@ -34,6 +49,13 @@ public class LevelSelectAnimation : MonoBehaviour
             
             yield return new WaitForEndOfFrame();
         }
+        
+        //re-enabling level select buttons after moving to level select
+        back.interactable = true;
+        lvl1.interactable = true;
+        lvl2.interactable = true;
+        lvl3.interactable = true;
+        lvl4.interactable = true;
     }
     
     IEnumerator MoveRight()
@@ -45,5 +67,18 @@ public class LevelSelectAnimation : MonoBehaviour
             
             yield return new WaitForEndOfFrame();
         }
+        
+        //re-enabling play button after moving to main menu
+        play.interactable = true;
+    }
+
+    private void DisableButtons()
+    {
+        play.interactable = false;
+        back.interactable = false;
+        lvl1.interactable = false;
+        lvl2.interactable = false;
+        lvl3.interactable = false;
+        lvl4.interactable = false;
     }
 }
