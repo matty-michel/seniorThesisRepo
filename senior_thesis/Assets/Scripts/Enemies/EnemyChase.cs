@@ -24,11 +24,9 @@ public class EnemyChase : MonoBehaviour
         if (_playerInRange)
         {
             float moveDirection = _player.transform.position.x - transform.position.x;
-            //Vector2 moveDirection = ((_player.transform.position - transform.position) * _enemyPatrol.speed).normalized;
-            MoveTowardsPlayer(moveDirection);
+            
             //move towards player
-            //float moveDirection = _player.transform.position.x - transform.position.x;
-            //_enemyPatrol.MoveInDirection(moveDirection);
+            MoveTowardsPlayer(moveDirection);
         }
     }
 

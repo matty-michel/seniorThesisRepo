@@ -1,7 +1,5 @@
 using UnityEngine;
 using TMPro;
-using System.Collections;
-using Unity.VisualScripting;
 
 public class TimedCollection : MonoBehaviour
 {

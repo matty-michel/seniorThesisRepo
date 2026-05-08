@@ -24,9 +24,8 @@ public class Spikes : MonoBehaviour
         _playerHealth = _player.GetComponent<Health>();
         _playerController = _player.GetComponent<PlayerController>();
         _playerCollider = _player.GetComponent<CapsuleCollider2D>();
-        //setting original speed & jump force to reset in collision exit
+        //setting original speed to reset in collision exit
         _originalSpeed = _playerController.speed;
-        _originalJumpForce = _playerController.jumpForce;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -35,7 +34,6 @@ public class Spikes : MonoBehaviour
         {
             _playerOnSpikes = true;
             _playerController.speed *= 0.5f;
-            //_playerController.jumpForce *= 0.5f;
             StartCoroutine("DamagePlayer");
         }
         else if (other.gameObject.CompareTag("Enemy"))
@@ -51,7 +49,6 @@ public class Spikes : MonoBehaviour
         {
             _playerOnSpikes = false;
             _playerController.speed = _originalSpeed;
-            _playerController.jumpForce = _originalJumpForce; 
         }
     }
 

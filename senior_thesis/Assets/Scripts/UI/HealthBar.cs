@@ -16,8 +16,11 @@ public class HealthBar : MonoBehaviour
     public void SetHealth(float healthVal)
     {
         health = healthVal;
+        
+        //updating width of health bar based on player health
         float newWidth = ((health / maxHealth) * width);
         healthBar.sizeDelta = new Vector2(newWidth, height);
+        
         Debug.Log("New health: " + health + "New width: " + newWidth);
     }
 }
