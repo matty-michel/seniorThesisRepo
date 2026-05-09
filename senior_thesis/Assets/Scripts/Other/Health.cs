@@ -10,15 +10,12 @@ public class Health : MonoBehaviour
     private Animator _animator;
     public int currentHealth;
     private HealthBar _healthBar;
-    private Control _control;
 
     void Start()
     {
         //setting current health to max
        currentHealth = maxHealth;
        _animator = GetComponent<Animator>();
-       
-       _control = GameObject.Find("Control").GetComponent<Control>();
        
        //getting reference to health bar for player object
        if (gameObject.CompareTag("Player"))
@@ -34,16 +31,11 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        //killing enemy or player
         if (currentHealth <= 0)
         {
             _animator.SetTrigger("Dead");
             Destroy(gameObject, 0.5f);
-            
-            if (gameObject.CompareTag("Player"))
-            {
-                GetComponent<PlayerController>().enabled = false;
-                _control.GameOver();
-            }
         }
     }
 
@@ -73,5 +65,11 @@ public class Health : MonoBehaviour
         
         //play hit sound
         SoundManager.Instance.PlayAudio(playerHitSound);
+    }
+
+    public void AddHealth(int amount)
+    {
+        //restricting player health between 0 - max
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 }

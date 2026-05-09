@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class HealthPickup : MonoBehaviour
@@ -27,12 +26,16 @@ public class HealthPickup : MonoBehaviour
         {
             //set animator parameter
             _animator.SetBool("Collected", true);
+            
             //play got pickup sound
             SoundManager.Instance.PlayAudio(gotPickupSound);
+            
             //destroy pickup
             Destroy(gameObject, 0.5f);
+            
             //add to player's health
-            _playerHealth.currentHealth = Mathf.Clamp(_playerHealth.currentHealth + healthAmount, 0, _playerHealth.maxHealth);
+            _playerHealth.AddHealth(healthAmount);
+            
             //update health bar
             _healthBar.SetHealth(_playerHealth.currentHealth);
         }

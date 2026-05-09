@@ -14,21 +14,33 @@ public class Control : MonoBehaviour
     
     private bool _freezeScene;
     private float _timesPlayed;
+    
+    private Health _playerHealth;
 
+    private void Start()
+    {
+        _playerHealth = player.GetComponent<Health>();
+    }
+    
     void Update()
     {
         //activating pause menu when player presses 'P' -- not allowing pause when in main menu
         if (SceneManager.GetActiveScene().name != "Main Menu")
         {
-            if(Input.GetKeyDown(KeyCode.P))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 PauseGame();
             }
             
             //controls only show on screen at the beginning of level before player has moved
-            if(Input.anyKeyDown)
+            if (Input.anyKeyDown)
             {
                 controls.SetActive(false); 
+            }
+
+            if (_playerHealth.currentHealth <= 0)
+            {
+                GameOver();
             }
         }
         
