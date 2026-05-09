@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2285167965507710115}
   - component: {fileID: 8742859666746233024}
+  - component: {fileID: 4900303540722164161}
   m_Layer: 8
   m_Name: CrushRange
   m_TagString: Untagged
@@ -25,12 +26,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862094027586478089}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: -0.658, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1999090571502319924}
+  m_Father: {fileID: 3646192219684144587}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8742859666746233024
 BoxCollider2D:
@@ -78,6 +79,24 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.30673242, y: 0.57731}
   m_EdgeRadius: 0
+--- !u!114 &4900303540722164161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862094027586478089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819e3ea84e4704fcb8c72a3a27f8f978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  upperEdge: {fileID: 6860898799265485484}
+  lowerEdge: {fileID: 3331794655475958799}
+  crusher: {fileID: 6595398751500330939}
+  downSpeed: 1
+  upSpeed: 0.2
+  waitTime: 1
 --- !u!1 &3331794655475958799
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,11 +140,10 @@ GameObject:
   - component: {fileID: 2007234184823802532}
   - component: {fileID: 6753097546671579947}
   - component: {fileID: 3491635880864202837}
-  - component: {fileID: 6040238683539060435}
   - component: {fileID: 7892390427201416881}
   m_Layer: 8
   m_Name: Thwomp
-  m_TagString: Crusher
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +161,6 @@ Transform:
   m_LocalScale: {x: 6.6988425, y: 6.7371483, z: 2.14}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2285167965507710115}
   - {fileID: 3646192219684144587}
   m_Father: {fileID: 5381940750921106663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,21 +292,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6040238683539060435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6595398751500330939}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 819e3ea84e4704fcb8c72a3a27f8f978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  upperEdge: {fileID: 6860898799265485484}
-  lowerEdge: {fileID: 3331794655475958799}
-  speed: 4
 --- !u!95 &7892390427201416881
 Animator:
   serializedVersion: 7
@@ -407,7 +409,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2285167965507710115}
   m_Father: {fileID: 1999090571502319924}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5546933633438439097
@@ -444,7 +447,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.0000003427267, y: 0}
+  m_Offset: {x: -0.0000003427267, y: -0.03}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -454,7 +457,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.28, y: 0.32}
+  m_Size: {x: 0.28, y: 0.25}
   m_EdgeRadius: 0
 --- !u!114 &5774642116012658426
 MonoBehaviour:
@@ -468,3 +471,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb1415a4aa0d94129a600188bbea88a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}

@@ -1,55 +1,93 @@
+using System.Collections;
 using UnityEngine;
 
 public class CrusherMovement : MonoBehaviour
 {
     [SerializeField] GameObject upperEdge;
     [SerializeField] GameObject lowerEdge;
-    [SerializeField] private float speed;
+    [SerializeField] private GameObject crusher;
     
-    private bool _movingDown;
-    private Animator _animator;
+    [SerializeField] private float downSpeed;
+    [SerializeField] private float upSpeed;
+    [SerializeField] float waitTime;
+    
+    private bool _triggered;
+    private float _countDown;
 
     void Start()
     {
-        _animator = GetComponent<Animator>();
+        _countDown = waitTime;
+        //_animator = GetComponent<Animator>();
     }
     void Update()
     {
-        if (_movingDown)
+        //starting countdown when player has triggered crusher
+        if (_triggered)
         {
-            if (transform.position.y >= lowerEdge.transform.position.y)
-            {
-                Move(-1);
-            }
-            else
-            {
-                ChangeDirection();
-            }
+            _countDown -= Time.deltaTime;
+            Debug.Log(waitTime);
         }
-        else
+    }
+
+    void Move(int direction, float speed)
+    {
+        //_crusherRigidbody.linearVelocity = new Vector3(_crusherRigidbody.linearVelocity.x, speed * direction);
+        crusher.transform.position = new Vector3(crusher.transform.position.x, crusher.transform.position.y + Time.deltaTime * speed * direction, crusher.transform.position.z);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        //only triggering after crusher has finished its last trigger
+        if (!_triggered)
         {
-            if (transform.position.y <= upperEdge.transform.position.y)
+            if (other.CompareTag("Player"))
             {
-                Move(1);
-            }
-            else
-            {
-                ChangeDirection();
+                _triggered = true;
             }
         }
     }
 
-    void Move(int direction)
+    private void OnTriggerStay2D(Collider2D other)
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime * speed * direction, transform.position.z);
+        if (other.CompareTag("Player") && _triggered)
+        {
+            //only moving crusher down after player has stood beneath it long enough
+            if (_countDown <= 0f)
+            {
+                StartCoroutine(Crush());
+            }
+        }
     }
 
-    void ChangeDirection()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        //change movement direction
-        _movingDown = !_movingDown;
+        //resetting triggered and countdown when player leaves crusher collider
+        _triggered = false;
+        _countDown = waitTime;
+    }
+
+    private IEnumerator Crush()
+    {
+        yield return new WaitForSeconds(1f);
+        
+        //move down
+        while (crusher.transform.position.y >= lowerEdge.transform.position.y)
+        {
+            Move(-1, downSpeed);
+            yield return new WaitForEndOfFrame();
+        }
         
         //play hit animation
-        _animator.SetTrigger("Hit");
+        //_animator.SetTrigger("Hit");
+        
+        //pause at the bottom
+        yield return new WaitForSeconds(2f);
+        
+        //move back up
+        while (crusher.transform.position.y <= upperEdge.transform.position.y)
+        {
+            Move(1, upSpeed);
+            yield return new WaitForEndOfFrame();
+        }
     }
 }
