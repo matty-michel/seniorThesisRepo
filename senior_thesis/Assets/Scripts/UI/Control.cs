@@ -19,7 +19,10 @@ public class Control : MonoBehaviour
 
     private void Start()
     {
-        _playerHealth = player.GetComponent<Health>();
+        if (player != null)
+        {
+            _playerHealth = player.GetComponent<Health>(); 
+        }
     }
     
     void Update()
