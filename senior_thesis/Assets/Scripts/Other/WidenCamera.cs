@@ -4,6 +4,13 @@ using UnityEngine;
 public class WidenCamera : MonoBehaviour
 {
     [SerializeField] private Camera mainCamera;
+
+    [SerializeField] private GameObject sky;
+    [SerializeField] private GameObject clouds;
+    [SerializeField] private GameObject hills;
+    [SerializeField] private GameObject trees1;
+    [SerializeField] private GameObject trees2;
+    
     private Camera bigCamera;
     
     void Start()
@@ -21,6 +28,12 @@ public class WidenCamera : MonoBehaviour
         {
             bigCamera.enabled = true;
             mainCamera.enabled = false;
+
+            sky.GetComponent<RepeatBackground>()._speedModifier = 0.5f;
+            clouds.GetComponent<RepeatBackground>()._speedModifier = 0.5f;
+            hills.GetComponent<RepeatBackground>()._speedModifier = 0.5f;
+            trees1.GetComponent<RepeatBackground>()._speedModifier = 0.5f;
+            trees2.GetComponent<RepeatBackground>()._speedModifier = 0.5f;
         }
     }
 
@@ -31,6 +44,12 @@ public class WidenCamera : MonoBehaviour
         {
             mainCamera.enabled = true;
             bigCamera.enabled = false;
+            
+            sky.GetComponent<RepeatBackground>()._speedModifier = 1f;
+            clouds.GetComponent<RepeatBackground>()._speedModifier = 1f;
+            hills.GetComponent<RepeatBackground>()._speedModifier = 1f;
+            trees1.GetComponent<RepeatBackground>()._speedModifier = 1f;
+            trees2.GetComponent<RepeatBackground>()._speedModifier = 1f;
         }
     }
 }

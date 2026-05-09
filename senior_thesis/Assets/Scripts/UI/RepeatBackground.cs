@@ -10,11 +10,13 @@ public class RepeatBackground : MonoBehaviour
     
     private float _distance;
     private float _movement;
+    public float _speedModifier;
     
     void Start()
     {
         _startPos = transform.position.x;
         _length = GetComponent<SpriteRenderer>().bounds.size.x;
+        _speedModifier = 1f;
     }
     
     void FixedUpdate()
@@ -26,7 +28,7 @@ public class RepeatBackground : MonoBehaviour
             _movement = followObject.transform.position.x * (1 - speed);
 
             //adding distance to position
-            transform.position = new Vector3(_startPos + _distance, transform.position.y, transform.position.z);
+            transform.position = new Vector3(_startPos + _distance * _speedModifier, transform.position.y, transform.position.z);
 
             //adjust background position if camera reaches the edge
             if (_movement > _startPos + _length)
