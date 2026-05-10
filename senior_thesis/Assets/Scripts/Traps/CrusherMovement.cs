@@ -17,7 +17,6 @@ public class CrusherMovement : MonoBehaviour
     void Start()
     {
         _countDown = waitTime;
-        //_animator = GetComponent<Animator>();
     }
     void Update()
     {
@@ -31,7 +30,6 @@ public class CrusherMovement : MonoBehaviour
 
     void Move(int direction, float speed)
     {
-        //_crusherRigidbody.linearVelocity = new Vector3(_crusherRigidbody.linearVelocity.x, speed * direction);
         crusher.transform.position = new Vector3(crusher.transform.position.x, crusher.transform.position.y + Time.deltaTime * speed * direction, crusher.transform.position.z);
     }
 
@@ -76,9 +74,6 @@ public class CrusherMovement : MonoBehaviour
             Move(-1, downSpeed);
             yield return new WaitForEndOfFrame();
         }
-        
-        //play hit animation
-        //_animator.SetTrigger("Hit");
         
         //pause at the bottom
         yield return new WaitForSeconds(2f);
