@@ -17,6 +17,8 @@ public class TimedCollection : MonoBehaviour
     private Control _control;
     private int _starCount;
     private int _currentStars;
+    
+    private bool _pressedKey;
 
     void Start()
     {
@@ -25,38 +27,48 @@ public class TimedCollection : MonoBehaviour
         totalStars.text = _starCount.ToString();
         
         _currentStars = 0;
+        //displaying total time before key is pressed
+        timer.text = timeLeft.ToString("0");
             
         _control = gameObject.GetComponentInParent<Control>();
     }
 
     void Update()
     {
-        //updating timer
-        timeLeft -= Time.deltaTime;
-        //formats the string to only show whole numbers
-        timer.text = timeLeft.ToString("0");
-        
-        if (_currentStars == _starCount)
+        if (Input.anyKeyDown)
         {
-            //activating confetti particles
-            confetti.SetActive(true);
-            
-            //player won game
-            _control.YouWin();
-            
-            //disable timer text
-            stars.gameObject.SetActive(false);
+            _pressedKey = true;
         }
-        else if (timeLeft <= 0 && _currentStars < _starCount)
+
+        if (_pressedKey)
         {
-            if (player != null)
+            //updating timer
+            timeLeft -= Time.deltaTime;
+            //formats the string to only show whole numbers
+            timer.text = timeLeft.ToString("0");
+
+            if (_currentStars == _starCount)
             {
-                //killing player
-                player.GetComponent<Health>().currentHealth = 0;
+                //activating confetti particles
+                confetti.SetActive(true);
+
+                //player won game
+                _control.YouWin();
+
+                //disable timer text
+                stars.gameObject.SetActive(false);
             }
-            
-            //disable timer text
-            stars.gameObject.SetActive(false);
+            else if (timeLeft <= 0 && _currentStars < _starCount)
+            {
+                if (player != null)
+                {
+                    //killing player
+                    player.GetComponent<Health>().currentHealth = 0;
+                }
+
+                //disable timer text
+                stars.gameObject.SetActive(false);
+            }
         }
     }
     
