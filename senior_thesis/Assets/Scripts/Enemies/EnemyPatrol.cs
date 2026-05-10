@@ -9,7 +9,6 @@ public class EnemyPatrol : MonoBehaviour
     
     private bool _movingLeft;
     
-    // Update is called once per frame
     void Update()
     {
         //move to the left as long as enemy pos is >= leftEdge
@@ -44,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
         _movingLeft =  !_movingLeft;
     }
     
-    public void MoveInDirection(float direction)
+    private void MoveInDirection(float direction)
     {
         //flipping enemy right
         if (direction > 0.01f)

@@ -4,27 +4,28 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float attackCooldown;
     [SerializeField] private int damage;
+    [SerializeField] private EnemyChase enemyChase;
+    
     //enemy can attack immediately
     private float _cooldownTimer = Mathf.Infinity;
+    
     private Health _playerHealth;
     private GameObject _player;
     private bool _playerInRange;
-    private EnemyPatrol _enemyPatrol;
-    private EnemyChase _enemyChase;
     private Block _block;
+    
     private Stunned _stunned;
     
     void Awake()
     {
         //getting player
-        _player = GameObject.Find("Player");
-        //getting health script of player
+        _player = GameObject.FindGameObjectWithTag("Player");
+        
+        //getting health & block script of player
         _playerHealth = _player.GetComponent<Health>();
-        //getting enemy patrol script of parent patrol object
-        _enemyPatrol = GetComponentInParent<EnemyPatrol>();
-        //getting block script from player
         _block = _player.GetComponent<Block>();
-        //getting stunned script
+        
+        //getting stunned script from enemy
         _stunned = GetComponentInParent<Stunned>();
     }
     
@@ -56,14 +57,9 @@ public class Enemy : MonoBehaviour
         }
 
         //enemy only chases when not attacking the player
-        if (_enemyChase != null)
+        if (enemyChase != null)
         {
-            _enemyChase.enabled = !_playerInRange;
-        }
-        //enemy only patrols when not attacking the player
-        if (_enemyPatrol != null)
-        {
-            _enemyPatrol.enabled = !_playerInRange;
+            enemyChase.enabled = !_playerInRange;
         }
     }
     

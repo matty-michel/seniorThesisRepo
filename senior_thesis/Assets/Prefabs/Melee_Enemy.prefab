@@ -84,6 +84,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseRange: {fileID: 8152349051924743919}
   chaseIndicator: {fileID: 6397425128683317047}
+  enemy: {fileID: 5067812488131073647}
+  player: {fileID: 0}
 --- !u!1 &1173449635774679697
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 4815796698821075970}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -182,7 +184,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -0.3}
+  m_Offset: {x: -0.45999992, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.28866667}
@@ -192,7 +194,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 3, y: 1}
+  m_Size: {x: 1.99, y: 1.57}
   m_EdgeRadius: 0
 --- !u!114 &8250740997445320242
 MonoBehaviour:
@@ -392,7 +394,6 @@ MonoBehaviour:
   playerHitSound: {fileID: 8300000, guid: 902828a83676948b2a085a2c006596fd, type: 3}
   enemyHitSound: {fileID: 8300000, guid: 893f218bd3d93406c867dec435b15af8, type: 3}
   currentHealth: 0
-  _dead: 0
 --- !u!114 &4214933163310400382
 MonoBehaviour:
   m_ObjectHideFlags: 0

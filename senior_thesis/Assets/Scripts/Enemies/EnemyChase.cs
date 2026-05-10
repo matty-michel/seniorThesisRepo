@@ -4,26 +4,25 @@ public class EnemyChase : MonoBehaviour
 {
     [SerializeField] private Collider2D chaseRange;
     [SerializeField] private GameObject chaseIndicator;
+    [SerializeField] private GameObject enemy;
+    [SerializeField] private GameObject player;
+    
     private EnemyPatrol _enemyPatrol;
-    private Rigidbody2D _enemyRigidbody;
+    
     private bool _playerInRange;
-    private GameObject _player;
     
     void Awake()
     {
-        //getting player
-        _player = GameObject.FindGameObjectWithTag("Player");
         //getting enemy patrol script
-        _enemyPatrol = GetComponentInParent<EnemyPatrol>();
-        //getting rigidbody
-        _enemyRigidbody = GetComponentInParent<Rigidbody2D>();
+        _enemyPatrol = enemy.GetComponent<EnemyPatrol>();
     }
     
     void Update()
     {
         if (_playerInRange)
         {
-            float moveDirection = _player.transform.position.x - transform.position.x;
+            Debug.Log("In update: " + _enemyPatrol.enabled);
+            float moveDirection = player.transform.position.x - enemy.transform.position.x;
             
             //move towards player
             MoveTowardsPlayer(moveDirection);
@@ -62,18 +61,22 @@ public class EnemyChase : MonoBehaviour
 
     void MoveTowardsPlayer(float direction)
     {
+                    
         //flipping enemy left
         if (direction < -0.01)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            enemy.transform.localScale = new Vector3(-1, 1, 1);
         }
         //flipping enemy right
         else if (direction > 0.01)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            enemy.transform.localScale = new Vector3(1, 1, 1);
         }
-        
-        _enemyRigidbody.AddForce((transform.position * direction * _enemyPatrol.speed * Time.deltaTime).normalized);
+
+        //moving enemy towards player
+        //getting sign of direction so the speed is normalized
+        enemy.transform.position = new Vector2(enemy.transform.position.x + Time.deltaTime * Mathf.Sign(direction) * _enemyPatrol.speed,
+            enemy.transform.position.y);
     }
 
     void OnDrawGizmos()

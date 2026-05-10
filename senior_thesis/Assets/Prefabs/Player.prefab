@@ -135,7 +135,7 @@ Transform:
   m_GameObject: {fileID: 2341814474430346522}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackCooldown: 1
-  attackRange: 2.4
+  attackRange: 1.5
   attackIndicator: {fileID: 8078195084717189608}
   attackTransform: {fileID: 4385559436768440247}
   attackableLayer:
@@ -427,7 +427,6 @@ MonoBehaviour:
   playerHitSound: {fileID: 8300000, guid: 902828a83676948b2a085a2c006596fd, type: 3}
   enemyHitSound: {fileID: 8300000, guid: 893f218bd3d93406c867dec435b15af8, type: 3}
   currentHealth: 0
-  _dead: 0
 --- !u!70 &948877224792089870
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
