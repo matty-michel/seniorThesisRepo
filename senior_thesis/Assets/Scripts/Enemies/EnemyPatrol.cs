@@ -16,7 +16,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             if (transform.position.x >= leftEdge.position.x)
             {
-                MoveInDirection(-1);   
+                MoveInDirection(-1, speed);   
             }
             else
             {
@@ -28,7 +28,7 @@ public class EnemyPatrol : MonoBehaviour
         {
             if (transform.position.x <= rightEdge.position.x)
             {
-                MoveInDirection(1);
+                MoveInDirection(1, speed);
             }
             else
             {
@@ -43,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
         _movingLeft =  !_movingLeft;
     }
     
-    public void MoveInDirection(float direction)
+    public void MoveInDirection(float direction, float moveSpeed)
     {
         //flipping enemy right
         if (direction > 0.01f)
@@ -57,6 +57,6 @@ public class EnemyPatrol : MonoBehaviour
         }
         
         //enemy moves in this direction
-        transform.position = new Vector3(transform.position.x + Time.deltaTime * direction * speed, transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x + Time.deltaTime * direction * moveSpeed, transform.position.y, transform.position.z);
     }
 }

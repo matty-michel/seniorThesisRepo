@@ -24,7 +24,7 @@ public class EnemyChase : MonoBehaviour
             float moveDirection = Mathf.Sign(player.transform.position.x - enemy.transform.position.x);
             
             //move towards player
-            _enemyPatrol.MoveInDirection(moveDirection);
+            _enemyPatrol.MoveInDirection(moveDirection, _enemyPatrol.speed + 0.5f);
         }
     }
 
