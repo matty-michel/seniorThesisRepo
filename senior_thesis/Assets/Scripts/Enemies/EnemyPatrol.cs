@@ -43,7 +43,7 @@ public class EnemyPatrol : MonoBehaviour
         _movingLeft =  !_movingLeft;
     }
     
-    private void MoveInDirection(float direction)
+    public void MoveInDirection(float direction)
     {
         //flipping enemy right
         if (direction > 0.01f)

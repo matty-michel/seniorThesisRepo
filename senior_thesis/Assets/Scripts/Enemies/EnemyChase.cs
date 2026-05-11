@@ -21,11 +21,10 @@ public class EnemyChase : MonoBehaviour
     {
         if (_playerInRange)
         {
-            Debug.Log("In update: " + _enemyPatrol.enabled);
-            float moveDirection = player.transform.position.x - enemy.transform.position.x;
+            float moveDirection = Mathf.Sign(player.transform.position.x - enemy.transform.position.x);
             
             //move towards player
-            MoveTowardsPlayer(moveDirection);
+            _enemyPatrol.MoveInDirection(moveDirection);
         }
     }
 
@@ -57,26 +56,6 @@ public class EnemyChase : MonoBehaviour
             //deactivating chase indicator
             chaseIndicator.SetActive(false);
         }
-    }
-
-    void MoveTowardsPlayer(float direction)
-    {
-                    
-        //flipping enemy left
-        if (direction < -0.01)
-        {
-            enemy.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        //flipping enemy right
-        else if (direction > 0.01)
-        {
-            enemy.transform.localScale = new Vector3(1, 1, 1);
-        }
-
-        //moving enemy towards player
-        //getting sign of direction so the speed is normalized
-        enemy.transform.position = new Vector2(enemy.transform.position.x + Time.deltaTime * Mathf.Sign(direction) * _enemyPatrol.speed,
-            enemy.transform.position.y);
     }
 
     void OnDrawGizmos()
