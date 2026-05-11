@@ -11,7 +11,6 @@ public class Spikes : MonoBehaviour
     private GameObject _enemy;
     
     private float _originalSpeed;
-    private float _originalJumpForce;
 
     private bool _playerOnSpikes;
     private bool _enemyOnSpikes;
@@ -20,10 +19,12 @@ public class Spikes : MonoBehaviour
     {
         //getting player
         _player = GameObject.FindGameObjectWithTag("Player");
+        
         //getting health & control scripts
         _playerHealth = _player.GetComponent<Health>();
         _playerController = _player.GetComponent<PlayerController>();
         _playerCollider = _player.GetComponent<CapsuleCollider2D>();
+        
         //setting original speed to reset in collision exit
         _originalSpeed = _playerController.speed;
     }
