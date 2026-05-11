@@ -11,8 +11,8 @@ public class StarCollectible : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
-        _timedCollection = GameObject.Find("Control").GetComponent<TimedCollection>();
-        _playerCollider = GameObject.Find("Player").GetComponent<CapsuleCollider2D>();
+        _timedCollection = GameObject.FindGameObjectWithTag("Control").GetComponent<TimedCollection>();
+        _playerCollider = GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider2D>();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -25,6 +25,8 @@ public class StarCollectible : MonoBehaviour
             _animator.SetBool("Collected", true);
             SoundManager.Instance.PlayAudio(collectedSound);
             
+            //disable collider so star isn't collected twice
+            gameObject.GetComponent<Collider2D>().enabled = false;
             //destroy collectible
             Destroy(gameObject, 0.5f);
         }
