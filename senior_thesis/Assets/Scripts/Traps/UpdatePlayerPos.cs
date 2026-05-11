@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class UpdatePlayerPos : MonoBehaviour
@@ -7,7 +6,11 @@ public class UpdatePlayerPos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            transform.SetParent(other.gameObject.transform);
+            //for error when scene is unloaded
+            if (other.gameObject.activeInHierarchy)
+            {
+                transform.SetParent(other.gameObject.transform);
+            }
         }
     }
 
@@ -15,7 +18,11 @@ public class UpdatePlayerPos : MonoBehaviour
     {
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
-            transform.SetParent(null);
+            //for error when scene is unloaded
+            if (other.gameObject.activeInHierarchy)
+            {
+                transform.SetParent(null);
+            }
         }
     }
 }
