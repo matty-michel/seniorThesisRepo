@@ -23,10 +23,9 @@ public class LevelSelectAnimation : MonoBehaviour
     {
         rightPoint.transform.position = new Vector3((mainMenu.transform.position.x + levelSelect.transform.position.x) * 0.5f, mainMenu.transform.position.y, mainMenu.transform.position.z);
         leftPoint.transform.position = new Vector3((mainMenu.transform.position.x - levelSelect.transform.position.x) * 2, mainMenu.transform.position.y, mainMenu.transform.position.z);
-        Debug.Log(leftPoint.transform.position);
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         //moving camera left
         cam.transform.position = new Vector3(cam.transform.position.x + Time.deltaTime * -1, cam.transform.position.y, cam.transform.position.z);
