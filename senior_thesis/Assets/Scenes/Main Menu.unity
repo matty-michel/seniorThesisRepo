@@ -2158,7 +2158,7 @@ Transform:
   m_GameObject: {fileID: 972659120}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1430, y: 241.09583, z: 0}
+  m_LocalPosition: {x: 1462, y: 241.09583, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2228,6 +2228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainMenu: {fileID: 396241652}
+  levelSelect: {fileID: 353888525}
   leftPoint: {fileID: 2093002921}
   rightPoint: {fileID: 972659120}
   cam: {fileID: 762512393}
@@ -4732,7 +4733,7 @@ Transform:
   m_GameObject: {fileID: 2093002921}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -460, y: 487.9344, z: 0}
+  m_LocalPosition: {x: -485, y: 487.9344, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
