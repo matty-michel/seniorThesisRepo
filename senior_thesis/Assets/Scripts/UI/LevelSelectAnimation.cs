@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class LevelSelectAnimation : MonoBehaviour
 {
     [SerializeField] GameObject mainMenu;
-    [SerializeField] GameObject levelSelect;
     [SerializeField] GameObject leftPoint;
     [SerializeField] GameObject rightPoint;
     [SerializeField] GameObject cam;
@@ -18,12 +17,6 @@ public class LevelSelectAnimation : MonoBehaviour
     [SerializeField] private Button lvl2;
     [SerializeField] private Button lvl3;
     [SerializeField] private Button lvl4;
-
-    private void Start()
-    {
-        rightPoint.transform.position = new Vector3((mainMenu.transform.position.x + levelSelect.transform.position.x) * 0.5f, mainMenu.transform.position.y, mainMenu.transform.position.z);
-        leftPoint.transform.position = new Vector3((mainMenu.transform.position.x - levelSelect.transform.position.x) * 2, mainMenu.transform.position.y, mainMenu.transform.position.z);
-    }
 
     private void FixedUpdate()
     {
